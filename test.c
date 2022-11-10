@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "json-c/json.h"
 #include <string.h>
+#include "test.h"
 
 struct Meals {   // Structure declaration
   int id;           // Member (int variable)
@@ -10,7 +11,7 @@ struct Meals {   // Structure declaration
   int ings[50];
 }; // End the structure with a semicolon
 
-int main(int argc, char const *argv[])
+void initializeStructs()
 {
     // struct json variables
     struct json_object *id;
@@ -87,5 +88,4 @@ int main(int argc, char const *argv[])
 
     // Research what this means 
     json_object_put(root); 
-    return 0;
 }
