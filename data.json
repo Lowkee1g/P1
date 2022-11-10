@@ -1,0 +1,23 @@
+{
+    "meals": {
+        "pasta med kødsovs": {
+            "id": 1,
+            "name": "pasta med kødsovs",
+            "price": 10.95,
+            "ings": [0,10,65,99]
+        },
+        "pasta pesto": {
+            "id": 2,
+            "name": "pasta pesto",
+            "price": 19.55,
+            "ings": [5,65]
+        }
+    },
+    "ingredients": {
+        "pasta": {
+            "id": 0,
+            "name": "pasta",
+            "price": 5.95
+        }
+    }
+  }
