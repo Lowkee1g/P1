@@ -2,26 +2,45 @@
 #include <string.h>
 #include <stdlib.h>
 
-int main(int argc, char const *argv[])
+char* inputString;
+
+typedef struct {
+    char name[30];
+    int numberOf;
+} InputIngredience;
+
+int main(void)
 {
     scanData();
+
+    
     return 0;
 }
 
 
-struct inputIngredience {
-    char name[30];
-    int lengthOfWord;
-    int numberOf;
-};
+
 
 void scanData() {
-    char inputWord[30];
-    int totalInputs;
     
-    do {
-        printf("input: ");
-        fgets(inputWord, sizeof(inputWord), stdin);
-        totalInputs++;
-    } while (inputWord != "next");
+    InputIngredience *Input = malloc(sizeof(InputIngredience));
+    //Input *input = malloc(sizeof(Input));
+
+    //inputs = (int *) malloc(1);
+    //Input->name = "Hello";
+    //Input->numberOf = 2;
+
+    //printf("%d",Input->numberOf);
+    gets(inputString);
+    do
+    {
+        
+        
+    } while (inputString != "end");
+    
+    
+
+    
+
+    
+    free(Input);
 }
