@@ -25,7 +25,7 @@ int initializeStructs(void){
       {4, "Hot dogs", 50.95, {}},
       {5, "Pizza", 50.95, {4,6}},
       {6, "Chili con carne", 50.95, {3}},
-      {7, "Idian dahl", 50.95, {5}}
+      {7, "Indian dahl", 50.95, {5}}
     };
 
     struct Ingredients ingredients[7] = {
