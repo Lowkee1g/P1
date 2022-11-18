@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+//https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
 char inputString[50];
 char *inputArray;
