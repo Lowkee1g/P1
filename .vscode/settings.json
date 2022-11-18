@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.hdl": "hdl",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "data.h": "c"
     }
 }
