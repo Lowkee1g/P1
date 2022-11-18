@@ -1,6 +1,3 @@
-// Modtag søge input (Ingredienser)
-// Få alle meals og ingredients
-// Søg gennem meals efter ingredients id
 // Tjek id inputtede ingredients og match med meals ingredients
 
 #include <stdio.h>
