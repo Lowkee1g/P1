@@ -12,8 +12,16 @@ void initializeStructs();
 
 void initializeStructs(){
     meals = (Meals *) malloc(mealssize * sizeof(Meals));
+    if (meals == NULL){
+        exit(EXIT_FAILURE);
+    }
+    
     
     int *ingredientids = (int *) malloc(3 * sizeof(int));
+    if (ingredientids == NULL){
+        exit(EXIT_FAILURE);
+    }
+    
     ingredientids[0] = 1;
     ingredientids[1] = 4;
     ingredientids[2] = 7;
@@ -25,7 +33,7 @@ void initializeStructs(){
     // {6, "Chili con carne", 50.95, {3}},
     // {7, "Indian dahl", 50.95, {5}}
     
-    
+    free(ingredientids);
 
     // Ingredients ingredients[ingredientssize] = {
     //   {1, "Minced meat", 39.95},
@@ -38,7 +46,7 @@ void initializeStructs(){
     // };
 }
 
-void changeStruct(int id, char* name, double price, int*  ingredientids){
+void changeStruct(int id, char* name, double price, int* ingredientids){
     meals[0].id = 1;
     strcpy(meals[0].name, "Spaghetti bolognese");
     meals[0].price = 50.95;
