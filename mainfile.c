@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "data.h"
 
 int main(void){
@@ -8,6 +9,7 @@ int main(void){
   printf("Tager noget fra første ret: %s", meals[0].name);
 
   free(meals);
+  free(ingredients);
 
   return 0;
 }

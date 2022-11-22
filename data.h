@@ -20,6 +20,6 @@ extern int ingredientssize;
 void initializeStructs();
 
 extern Meals *meals;
-// extern Ingredients ingredients[];
+extern Ingredients *ingredients;
 
 #endif

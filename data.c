@@ -5,9 +5,11 @@
 
 int mealssize = 7;
 int ingredientssize = 7;
-Meals *meals; // TODO: Det her virker til at skulle være malloc. Det skal på heap, så det kan tilgås globalt
+Meals *meals; 
+Ingredients *ingredients;
 
-void changeStruct(int id, char* name, double price, int*  ingredientids);
+void changeMeal(int id, char* name, double price, int*  ingredientids);
+void changeIngredient(int id, char* name, double price);
 void initializeStructs();
 
 void initializeStructs(){
@@ -15,7 +17,6 @@ void initializeStructs(){
     if (meals == NULL){
         exit(EXIT_FAILURE);
     }
-    
     
     int *ingredientids = (int *) malloc(3 * sizeof(int));
     if (ingredientids == NULL){
@@ -25,7 +26,7 @@ void initializeStructs(){
     ingredientids[0] = 1;
     ingredientids[1] = 4;
     ingredientids[2] = 7;
-    changeStruct(1, "Spaghetti bolognese", 50.95, ingredientids);
+    changeMeal(1, "Spaghetti bolognese", 50.95, ingredientids);
     // {2, "Lasagne", 50.95, {1,4,7}},
     // {3, "Pasta pesto", 50.95, {2,7}},
     // {4, "Hot dogs", 50.95, {}},
@@ -35,6 +36,10 @@ void initializeStructs(){
     
     free(ingredientids);
 
+    ingredients = (Ingredients *) malloc(ingredientssize * sizeof(Ingredients));
+    if (ingredients == NULL){
+        exit(EXIT_FAILURE);
+    }
     // Ingredients ingredients[ingredientssize] = {
     //   {1, "Minced meat", 39.95},
     //   {2, "Pesto", 15.95},
@@ -46,8 +51,14 @@ void initializeStructs(){
     // };
 }
 
-void changeStruct(int id, char* name, double price, int* ingredientids){
-    meals[0].id = 1;
-    strcpy(meals[0].name, "Spaghetti bolognese");
-    meals[0].price = 50.95;
+void changeMeal(int id, char* name, double price, int* ingredientids){
+    meals[id - 1].id = id;
+    strcpy(meals[id - 1].name, name);
+    meals[id - 1].price = price;
+}
+
+void changeIngredient(int id, char* name, double price){
+    ingredients[id - 1].id = id;
+    strcpy(ingredients[id - 1].name, name);
+    ingredients[id - 1].price = price;
 }
