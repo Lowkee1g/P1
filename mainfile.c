@@ -10,6 +10,7 @@ int main(void){
 
   free(meals);
   free(ingredients);
+  free(foundmeals);
 
   return 0;
 }
