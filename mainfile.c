@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "data.h"
+#include "searchMeals.h"
 
 int main(void){
   printf("Pleeeease skriv 7: %d \n", mealssize);
