@@ -55,6 +55,7 @@ void changeMeal(int id, char* name, double price, int* ingredientids){
     meals[id - 1].id = id;
     strcpy(meals[id - 1].name, name);
     meals[id - 1].price = price;
+    // meals[id - 1].ings = ingredientids;
 }
 
 void changeIngredient(int id, char* name, double price){
