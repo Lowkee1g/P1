@@ -1,22 +1,34 @@
-// Modtag søge input (Ingredienser)
-// Få alle meals og ingredients
-// Søg gennem meals efter ingredients id
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "data.h"
 
-void searchMeals(char* ings);
+Meals **foundmeals;
+
+void searchMeals(char **ings);
 int contains(int a, int *list);
 
-void searchMeals(char* ings){
+void searchMeals(char **ings){
     int size = sizeof(ings)/sizeof(ings[0]);
-    Meals **foundmeals = (Meals *) malloc(size * sizeof(Meals)); 
+    Meals **foundmeals = (Meals **) malloc(size * sizeof(Meals)); 
     if (foundmeals == NULL){
         exit(EXIT_FAILURE);
     }
+    
+    int *ingids = (int *) malloc(size * sizeof(int));
+    if (ingids == NULL){
+        exit(EXIT_FAILURE);
+    }
+    
+    for (int i = 0; i < size; i++){ // For each input ingredient
+        for (int j = 0; j < ingredientssize; j++){ // For each existing ingredient struct
+            if(!strcmp(ings[i], ingredients[j].name)){ // Find the given ingredients id.
+                ingids[i] = ingredients[j].id;
+            }
+        }
+    }
 
-    for (int i = 0; i < size; i++){ // Lav en liste af meals for hver ingrediens
+    for (int i = 0; i < size; i++){ // Make a list of meals for each ingredient
         foundmeals[i] = (Meals *) malloc(mealssize * sizeof(Meals));
         if (foundmeals == NULL){
             exit(EXIT_FAILURE);
@@ -24,19 +36,19 @@ void searchMeals(char* ings){
     }
 
     int counter; 
-    for (int i = 0; i < size ; i++){ // Itererer gennem listen af input ingredienser
+    for (int i = 0; i < size ; i++){ // Iterate through list of ingredients
     counter = 0;
-        for (int j = 0; j < mealssize; j++) { // Itererer gennem alle meals for at finde nogle med ingredienser, som matcher
-            if (contains(ings[i], meals[j].ings)){ //Der er noget der ikke helt fungerer her...
+        for (int j = 0; j < mealssize; j++) { // Iterate through all meals to find the meals with matching ingredients
+            if (contains(ingids[i], meals[j].ings)){
                 foundmeals[i][counter] = meals[j];
                 counter++;
             }
-            
         }
     }
 
+    free(ingids);
 
-    //  Hvis det er en mulighed at lave første liste i foundmeals til at være de retter, som har flest til fælles, så kan search og sort meals
+    // Hvis det er en mulighed at lave første liste i foundmeals til at være de retter, som har flest til fælles, så kan search og sort meals
     // være den samme funktion. https://stackoverflow.com/questions/58306236/can-i-use-contains-for-integer-list .... Det kan man sikkert ikke,
     // men nu er linket her
 

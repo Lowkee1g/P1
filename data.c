@@ -40,6 +40,9 @@ void initializeStructs(){
     if (ingredients == NULL){
         exit(EXIT_FAILURE);
     }
+
+    changeIngredient(1, "Spaghetti", 10);
+
     // Ingredients ingredients[ingredientssize] = {
     //   {1, "Minced meat", 39.95},
     //   {2, "Pesto", 15.95},

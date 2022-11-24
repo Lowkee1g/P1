@@ -4,6 +4,6 @@
 
 extern Meals **foundmeals;
 
-void searchMeals(char *ings);
+void searchMeals(char **ings);
 
 #endif // SEACH_MEALS_H
