@@ -1,0 +1,7 @@
+1, Minced meat, 39.95,
+2, Pesto, 15.95,
+3, Beans, 22.95,
+4, Dolmio, 10.95,
+5, Green Lentils, 5.95,
+6, Ham, 11.55,
+7, Pasta, 9.55,

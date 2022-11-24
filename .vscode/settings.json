@@ -3,6 +3,7 @@
         "*.hdl": "hdl",
         "stdlib.h": "c",
         "stdio.h": "c",
-        "data.h": "c"
+        "data.h": "c",
+        "random": "c"
     }
 }
