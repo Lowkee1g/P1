@@ -45,17 +45,19 @@ void initializeStructs(){
 
 void InitializeMeals(FILE *file) {
     // Get number of meals in meals.txt
+    int sample_chr = getc(file);
     int mealsize = 1;
-    int ch = 0;
-    // Tests the end-of-file indiacator
-    while(!feof(file)) {
-        ch = fgetc(file);
-        // If the last char is breakline do mealsize++
-        if(ch == '\n') {
+    while(sample_chr != EOF) {
+        if(sample_chr == '\n') {
             mealsize++;
         }
+
+        sample_chr = getc(file);
     }
-    printf("%d", mealsize);
+    fclose(file);
+    printf("SIZE: %d\n", mealsize);
+
+    FILE *openFileAgain = fopen("meals.txt", "r");
 
     meals = (Meals *) malloc(mealsize * sizeof(Meals));
     if (meals == NULL){
@@ -65,19 +67,23 @@ void InitializeMeals(FILE *file) {
     int success;
     Meals meal;
     for (int i = 0; i < mealsize; i++) {
-        success = fscanf(file, "%d", &meal.id);
+        success = fscanf(openFileAgain, "%d, %[^,], %lf, %d,", &meal.id, &*meal.name, &meal.price, &meal.ings[i]);
         printf("success: %d", success);
-        //  if(success != 1) {
-
-        //  }
-        // meal.id = i + 1;
+         if(success != 4) {
+            break;
+         }
         meals[i] = meal;
     }
 
     for (int i = 0; i < mealsize; i++) {
         printf("\nMeal ID: %d\n", meals[i].id);
-        // printf("\nMeal Name: %s\n", meals[i].name);
-        // printf("\nMeal Price: %lf\n", meals[i].price);
+        printf("\nMeal Name: %s\n", meals[i].name);
+        printf("\nMeal Price: %lf\n", meals[i].price);
+        for (int n = 0; n <= 2; n++)
+        {
+            printf("\nMeal Ings: %d\n", meals[i].ings[n]);
+        }
+        
     }
 }
 

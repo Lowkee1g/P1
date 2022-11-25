@@ -5,7 +5,7 @@ typedef struct Meals {
   int id;       
   char name[50];
   double price;
-  int ings[50];
+  int ings[3];
 } Meals;
 
 typedef struct Ingredients {
