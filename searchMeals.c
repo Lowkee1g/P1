@@ -14,7 +14,7 @@ void searchMeals(char **ings){
     if (foundmeals == NULL){
         exit(EXIT_FAILURE);
     }
-    
+
     int *ingids = (int *) malloc(size * sizeof(int));
     if (ingids == NULL){
         exit(EXIT_FAILURE);
