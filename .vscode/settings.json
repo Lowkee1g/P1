@@ -4,6 +4,9 @@
         "stdlib.h": "c",
         "stdio.h": "c",
         "data.h": "c",
-        "random": "c"
+        "random": "c",
+        "sstream": "c",
+        "string": "c",
+        "iosfwd": "c"
     }
 }
