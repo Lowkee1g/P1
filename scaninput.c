@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "scaninput.h"
 //https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
-char inputString[50];
-char *inputArray;
-
+char **array;
 
 void scanData() {
     //Peudokode
@@ -13,8 +12,7 @@ void scanData() {
     Tager inputtet og ændre længende af arrayet ved at sætte det ind efter
     Loop vi op til start */
 
-    int c;
-    char **array;
+    //int c;
 
     //Opretter 2D array af strings
     array = malloc(1 * sizeof *array);
@@ -30,7 +28,7 @@ void scanData() {
         if (strcmp(array[size],"next\0") == 0) {array[size] = ' '; break;  }
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
-        array = (char *) realloc(array, 1);
+        array = realloc(array, 1);
         size++;
     }    
 
