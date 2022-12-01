@@ -21,11 +21,12 @@ void scanData() {
     }
 
     //Går gennem inputs fra brugen indtil at der bliver skrevet next
+    printf("\nInsert ingrediences (Type next to end): ");
     int size = 0;  
     while (1) {
-        printf("\nInsert a string here : ");
         gets(array[size]);
-        if (strcmp(array[size],"next\0") == 0) {array[size] = ' '; break;  }
+        if (strcmp(array[size],"next\0") == 0) {array[size] = ' '; break;}   
+        printf("\nnext ingredience: ");
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
         array = realloc(array, 1);
