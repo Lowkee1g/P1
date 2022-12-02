@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "data.h"
 
 
 int main(void){
@@ -13,5 +11,16 @@ int main(void){
   // free(ingredients);
   // free(foundmeals);
 
-  return 0;
+    //Load meals and ingrediences here
+
+    //Scan for data here
+    scanData();
+
+    //Search for meals based of the scan
+
+    //Sort the output here
+
+    //Output the data here
+
+    return 0;
 }
