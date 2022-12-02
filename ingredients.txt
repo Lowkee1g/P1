@@ -24,7 +24,7 @@
 24, Cremefraiche, 0
 25, Paprika, 0
 26, Tacosauce, 0
-27 Havregryn, 0
+27, Havregryn, 0
 28, Floremelis, 0
 29, Kakaopulver, 0
 30, Kokosmel, 0
@@ -39,7 +39,7 @@
 39, Brøndkarse, 0
 40, Flutes, 0
 41, Butterdej, 0
-42, Champigoner, 0,
+42, Champigoner, 0
 43, Skinke, 0
 44, Flødeost, 0
 45, Taffelsennep, 0
