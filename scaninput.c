@@ -25,7 +25,7 @@ void scanData() {
     int size = 0;  
     while (1) {
         gets(array[size]);
-        if (strcmp(array[size],"next\0") == 0) {array[size] = ' '; break;}   
+        if (strcmp(array[size],"next\0") == 0) {array[size] = (char *) ' '; break;}   
         printf("\nnext ingredience: ");
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1

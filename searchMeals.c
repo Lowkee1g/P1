@@ -21,7 +21,7 @@ void searchMeals(char **ings){
     }
     
     for (int i = 0; i < size; i++){ // For each input ingredient
-        for (int j = 0; j < ingredientssize; j++){ // For each existing ingredient struct
+        for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
             if(!strcmp(ings[i], ingredients[j].name)){ // Find the given ingredients id.
                 ingids[i] = ingredients[j].id;
             }
@@ -29,7 +29,7 @@ void searchMeals(char **ings){
     }
 
     for (int i = 0; i < size; i++){ // Make a list of meals for each ingredient
-        foundmeals[i] = (Meals *) malloc(mealssize * sizeof(Meals));
+        foundmeals[i] = (Meals *) malloc(mealSize * sizeof(Meals));
         if (foundmeals == NULL){
             exit(EXIT_FAILURE);
         }
@@ -38,7 +38,7 @@ void searchMeals(char **ings){
     int counter; 
     for (int i = 0; i < size ; i++){ // Iterate through list of ingredients
     counter = 0;
-        for (int j = 0; j < mealssize; j++) { // Iterate through all meals to find the meals with matching ingredients
+        for (int j = 0; j < mealSize; j++) { // Iterate through all meals to find the meals with matching ingredients
             if (contains(ingids[i], meals[j].ings)){
                 foundmeals[i][counter] = meals[j];
                 counter++;

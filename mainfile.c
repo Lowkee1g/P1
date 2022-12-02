@@ -7,11 +7,14 @@
 int main(void){
 
     //Load meals and ingrediences here
+    printf("init\n ");
     initializeStructs();
 
     //Scan for data here
+    printf("Scan \n");
     scanData();
 
+    printf("Efter");
     //Search for meals based of the scan
 
     //Sort the output here

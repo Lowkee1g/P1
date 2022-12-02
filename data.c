@@ -7,12 +7,15 @@
 Meals *meals; 
 Ingredients *ingredients;
 
+int mealSize;
+int ingredientsSize;
+
 void changeMeal(int id, char* name, double price, int*  ingredientids);
 void changeIngredient(int id, char* name, double price);
 void initializeStructs();
-void InitializeMeals(FILE *mealsFile);
-void InitializeIngredients(FILE *ingredientsFile);
-int GetNumberOfLines(FILE *file);
+void initializeMeals(FILE *mealsFile);
+void initializeIngredients(FILE *ingredientsFile);
+int getNumberOfLines(FILE *file);
 
 void initializeStructs() {
 
@@ -24,15 +27,17 @@ void initializeStructs() {
     if(mealsFile == NULL || ingredientsFile == NULL) {
         exit(EXIT_FAILURE);
     }
-
-    InitializeMeals(mealsFile);
-    InitializeIngredients(ingredientsFile);
+    printf("Allerede? \n");
+    initializeMeals(mealsFile);
+    printf("Her\n");
+    initializeIngredients(ingredientsFile);
 }
 
-void InitializeMeals(FILE *mealsFile) {
+void initializeMeals(FILE *mealsFile) {
     
     // initialize mealszie by calling GetNumberOfLines on meals.txt file
-    int mealSize = GetNumberOfLines(mealsFile);
+    mealSize = getNumberOfLines(mealsFile);
+    printf("Kalder get numbers \n");
 
     // Initialize Meals
     meals = (Meals *) malloc(mealSize * sizeof(Meals));
@@ -41,6 +46,7 @@ void InitializeMeals(FILE *mealsFile) {
     FILE *openMealsFileAgain = fopen("meals.txt", "r");
 
     if (meals == NULL || openMealsFileAgain == NULL){
+        printf("Inden exit");
         exit(EXIT_FAILURE);
     }
 
@@ -49,6 +55,7 @@ void InitializeMeals(FILE *mealsFile) {
     Meals meal;
     // Loop through all meals.
     for (int i = 0; i < mealSize; i++) {
+        printf("I for");
         // Set a counter used to control ingredients mallock size and tempString to make ingredients array
         char tempString[100];
         int counter = 0;
@@ -57,13 +64,14 @@ void InitializeMeals(FILE *mealsFile) {
         meal.ings = (int *) malloc(1 * sizeof(int));
         meal.sizeOfIngs = 0;
 
-        if (meal.ings == NULL)
-        {
+        if (meal.ings == NULL){
+            printf("Endnu en exit");
             exit(EXIT_FAILURE);
         }
         
         // Read each line in meals.txt
         success = fscanf(openMealsFileAgain, "%d, %[^,], %lf, %s", &meal.id, &*meal.name, &meal.price, &*tempString);
+        printf("\n %d \n", success);
         
         // If it fails break the loop
         if(success != 4) {
@@ -78,6 +86,12 @@ void InitializeMeals(FILE *mealsFile) {
             // Increase size of ingredients in the struct and realloc the size of ingredients
             meal.sizeOfIngs++;
             meal.ings = (int *) realloc(meal.ings, counter * sizeof(int));
+            if (meal.ings == NULL)
+            {
+                printf("3. exit ting");
+                exit(EXIT_FAILURE);
+            }
+            
             // Convert the char into an integer and push it to ingredients array
             meal.ings[counter] = atoi(token);
             counter++;
@@ -95,11 +109,12 @@ void InitializeMeals(FILE *mealsFile) {
     }
 
     fclose(openMealsFileAgain);
+    printf("Efter fclose");
 }
 
-void InitializeIngredients(FILE *ingredientsFile) {
+void initializeIngredients(FILE *ingredientsFile) {
     // initialize ingredientsSize by calling GetNumberOfLines on meals.txt file
-    int ingredientsSize = GetNumberOfLines(ingredientsFile);
+    ingredientsSize = getNumberOfLines(ingredientsFile);
     
     // Initialize ingredients
     ingredients = (Ingredients *) malloc(ingredientsSize * sizeof(Ingredients));
@@ -127,7 +142,7 @@ void InitializeIngredients(FILE *ingredientsFile) {
     fclose(openIngredientsFileAgain);
 }
 
-int GetNumberOfLines(FILE *file) {
+int getNumberOfLines(FILE *file) {
       // Get number of meals in meals.txt to make a malloc
     int sampleChr = getc(file);
     int numberOfLines = 1;

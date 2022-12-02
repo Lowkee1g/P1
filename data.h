@@ -15,8 +15,8 @@ typedef struct Ingredients {
   double price;
 } Ingredients;
 
-extern int mealssize;
-extern int ingredientssize;
+extern int mealSize;
+extern int ingredientsSize;
 
 void initializeStructs();
 
