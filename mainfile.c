@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include "data.h"
+#include "scaninput.h"
 
 int main(void){
   // printf("Pleeeease skriv 7: %d \n", mealssize);
