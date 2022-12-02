@@ -1,2 +1,62 @@
-1, Spaghetti bolognese, 50.95, {1,2,3,7,4,9,10}
-2, Paste pesto, 50.95, {1,2,3,7}
+ID, NAME, PRICE, {Ingredience}
+1, Spaghetti bolognese, 50.95, {Spaghetti, bacon, løg, hvidløg, timian, Oksekød, rødvin, tomater, tomater, salt, peber}
+2, Paste pesto, 50.95, {pasta, pesto}
+4, Halloween pirogger, 0, {Smør, Kylling, Blandede grøntsager, Zittauerløg, Fed hvidløg, Koncentreret tomatpuré, Tacokrydderi, salt, peber, revet Mozzarella, Vand, Gær, Kærnemælk, Honning, speltmel, Hvedemel, creme fraiche, Mild paprika, Mild tacosauce}
+5, Havregrynskugler, 0, {havregryn, Flormelis, Kakaopulver, Smør, Vand, Kokosmel}
+6, Brunsviger, 0, {Mælk, Gær, Hvedemel, Æg, Smør, Sukker, Salt, Brun farin}
+7, Gulerodsboller, 0, {Vand, Gær, gulerødder, Mælk, Æg, salt, havregryn, Hvedemel}
+8, Brownies, 0, {Smør, Mørk chokolade, Æg, Sukker, Hvedemel, Kakaopulver, valnøddekerner}
+9, Tunfiskemousse, 0, {Tun, Smør, Cremefraiche, citronsaft, salt, peber, Brøndkarse, flutes}
+10, Skinkestang, 0, {Butterdej, Smør, Champignoner, skinke, flødeost, Taffelsennep, purløg, salt, peber, æg}
+11, Pizzadej, 0, {Gær, Vand, Tipo, Olivenolie, Sukker, salt}
+12, Broccolisalat, 0, {Cremefraiche, Rødvinseddike, Sukker, Bacon, Broccoli, Rødløg, Solsikkekerner, Rosiner}
+13, Culottesteg, 0, {Okseculotte, Smør, salt, peber}
+14, Fondant, 0, {skumfiduser, Rapsolie, frugtfarve, Flormelis}
+15, Bagt kartoffelmos, 0, {kartofler, Smør, Mælk, Æggeblommer, kruspersille, salt, peber, Æggehvider, Pasta}
+16, Bechamelsauce, 0, {Smør, Hvedemel, Mælk, muskatnød, salt}
+17, rejecocktail, 0, {Cremefraiche, citronsaft, Sukker, salt, zittauerløg, Tomatketchup, HP, Piskefløde, hjertesalat, rejer, Cocktailtomater, Citron, Dild, Flutes}
+18, Bananpandekager, 0, {Bananer, Æg, havregryn, Smør, frugtsmoothie}
+19, Muffins, 0, {smør, Sukker, Æg, Hvedemel, kanel, Bagepulver, Mælk, chokolade}
+20, Kylling i karry, 0, {Smør, karry, kyllingefileter, zittauerløg, Sukker, salt, peber, Vand, æbler, mælkesauce, ris, Mangochutney}
+21, Ribbensteg, 0, {Ribbensteg, salt, Vand}
+22, Langtidsstegt flæskesteg, 0, {flæskesteg, salt, Laurbærblade, Vand}
+23, Jordskokkesuppe, 0, {Smør, skalotteløg, jordskokker, Vand, Grøntsagsbouillon-pulver, Jordskokker, salt, Fløde, peber, purløg}
+24, Spidskålssalat, 0, {Cremefraiche, Citron, salt, peber, æbler, spidskål, persille}
+25, Grønlangkål, 0, {Smør, Hvedemel, Piskefløde, grønkål, Sukker, salt, peber}
+26, Flæskestegssandwich, 0, {Burgerboller, mayonnaise, Flæskesteg, rødkål, æble, salat}
+
+100, Stuvet spidskål, 0, {Mælk, Smør, Revet muskatnød, Groft salt, Vand, spidskål}
+101, Kyllingefillet i ovn, 0, {Brune ris, kylling, Ærter, Piskefløde}
+102, Æblekage, 0, {Sukker, Æg, Smør, Hvedemel, Bagepulver}
+103, Oksekød i fad, 0, {Kartofler, Mælk, Smør, Zittauerløg, Paprika}
+104, Koteletter i fad, 0, {Grisekoteletter, Zittauerløg, Madlavningsfløde}
+105, Pizzasnegle med skinke, 0, {Pizzadej, Skinke, Zittauerløg, tomatpuré}
+106, Græskartærte, 0, {Græskar i tern, Piskefløde, Mælk, Appelsinskal, Græskarkerner}
+107, Kyllinglår i ovn, 0, {Kyllinglår, Ærter, Frisk pasta}
+108, Verdens bedste Brød, 0, {Gær, Hvedemel, Groft salt}
+109, Coleslaw, 0, {Mayonnaise, Dijonsennep, Sukker, gulerødder}
+110, Æblemos, 0, {Vand, Skrællede æbler i mindre stykker}
+111, Æggekage i ovn, 0, {Store tomater, Hvedemel, Mælk, Æg, Kartofler, Zittauerløg}
+112, Kyllingegryde, 0, {Karrysauce, tomatpuré, Cashewnødder, Broccoli, Brune Ros}
+113, White russian, 0, {Kold vodka, Kold kaffelikør, Mælk}
+114, Stuvet Spinat, 0, {Madlavningsfløde, Smør, Spinat, Hvedemel}
+115, Græskarsuppe, 0, {Grøntsagsbouillon, Laurbærblade, Citrongræs, Græskar, Salt}
+116, Porretærte med bacon og hytteost, 0, {Hytteost, Porrer, Æg, Muskatnød}
+117, Grydestegt kylling, 0, {Kylling, Piskefløde, Kartofler, Salt}
+118, Mørbrad i fad, 0, {Svinemørbrad, Champignoner, Zittauerløg, Bacon, Tomater, Madlavningsfløde}
+119, Butternut squash i ovn, 0, {Squash, Rugbrød, Spidskommen, Kvark, Persille}
+120, Arme riddere, 0, {Æg, Toastbrød, Yoghurt, Smør, Mælk}
+121, Mini pizzaer, 0, {tomatpuré, Zittauerløg, Oregano, Sukker, Skinke, Mozzarella}
+122, Lakselasagne, 0, {Spinat, Madlavningsfløde, Laks, Mozzarella}
+123, Øllebrød, 0, {Kanelstang, Rugbrød, Vand, Maltøl, Appelsinskal}
+124, Paella med rejer, 0, {Smør, Safran, Grøntsagsbouillon, Rejer, Citron}
+
+500, kimchi, 0, {Groftstrimlede kinaskaal, vand, salt, radiser, gullerødder, blomkål, thai fiskesauce, chilliflges, hvidløg, ingefær}
+501, Falafler, 0, {Persille, Hvidløg, Zittauerløg, Kkikærter, Æg, Hvedemel, Spidskommen, Paprika, Salt, Olie, Flagesalt, Citroner}
+502, Macipan, 0, {Vand, Rørsukker, Smuttede mandler}
+503, Bearnaisesauce,0 {Bearnaiseeesens, Æggeblommer, Smør, Vand, Estragonblade, Salt, Hvid peber}
+504, Poke bowl, 0, {Røget Laks, Brun Ris, spidskål, Avocado, Hytteost, Edamamebønner, Forårsløg, Limefrugt, Chilipeber, Seasamfrø, Mynteblade}
+505, Varm Katoffelsalat, 0, {Aspargeskartofler, Smør, Vand, Lagereddike, Sukker, Salt, Peber, Zittauerløg, Fløde}
+506, Scrambled eggs, 0, {Æg, Piskefløde, Salt, Smør, Purløg, Peber}
+
+
