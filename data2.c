@@ -68,9 +68,10 @@ void initializeMeals(FILE *mealsFile) {
         char tempString[100];
         int counter = 0;
         printf("\nwe start:%d",i);
+        printf("%d", meals[1].id);
 
         // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
-        meals[i].ings = (int *) malloc(1 * sizeof(int)); printf("Running - malloc");
+        meals[i].ings = (int *) malloc(1 * sizeof(int)); printf("\nRunning - malloc");
         meals[i].sizeOfIngs = 0;
 
         if (meals[i].ings == NULL){
@@ -90,6 +91,7 @@ void initializeMeals(FILE *mealsFile) {
         // Break the tempString into tokens. Splitting the string at , { }.
         char * token = strtok(tempString, ", { }");
         
+
         // loop through the string to extract all other tokens
         while( token != NULL ) {
             // Increase size of ingredients in the struct and realloc the size of ingredients
@@ -100,7 +102,7 @@ void initializeMeals(FILE *mealsFile) {
                 printf("3. exit ting");
                 exit(EXIT_FAILURE);
             }
-            printf("\n-Past exit: %d", counter);
+            printf("\n-Loaded Ingredience: %d", counter);
             
             // Convert the char into an integer and push it to ingredients array
             meals[i].ings[counter] = atoi(token);
@@ -114,9 +116,8 @@ void initializeMeals(FILE *mealsFile) {
             // When there is no tokents left to retrieve make token return null to stop the while loop
             token = strtok(NULL, ", { }");
         }
+        printf("\nStored: [%d|%s|%lf|%d]", meals[i].id, meals[i].name, meals[i].price, meals[i].ings[0]);
         printf("\nexit");
-        // Put each meal into the array of meals
-        //meals[i] = meals[i];
     }
 
     fclose(openMealsFileAgain);
