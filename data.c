@@ -52,7 +52,7 @@ void InitializeMeals(FILE *file) {
     Meals meal;
     for (int i = 0; i < mealsize; i++) {
         int counter = 0;
-        char tempString[50];
+        char tempString[100];
         meal.ings = (int *) malloc(1 * sizeof(int));
         meal.sizeOfIngs = 0;
 
@@ -62,7 +62,7 @@ void InitializeMeals(FILE *file) {
         }
         
         success = fscanf(openFileAgain, "%d, %[^,], %lf, %s", &meal.id, &*meal.name, &meal.price, &*tempString);
-        printf("success: %d", success);
+        // printf("success: %d", success);
         if(success != 4) {
             break;
         }
@@ -86,8 +86,8 @@ void InitializeMeals(FILE *file) {
 
     for (int i = 0; i < mealsize; i++) {
         printf("\n Meal ID: %d \n", meals[i].id);
-        printf("\n Meal Name: %s \n", meals[i].name);
-        printf("\n Meal Price: %lf \n", meals[i].price);
+        // printf("\n Meal Name: %s \n", meals[i].name);
+        // printf("\n Meal Price: %lf \n", meals[i].price);
         for (int n = 0; n < meals[i].sizeOfIngs; n++)
         {
             printf("\n Meal Ings: %d \n", meals[i].ings[n]);
