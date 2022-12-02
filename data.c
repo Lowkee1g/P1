@@ -53,8 +53,9 @@ void InitializeMeals(FILE *file) {
     for (int i = 0; i < mealsize; i++) {
         int counter = 0;
         char tempString[50];
+        meal.ings = (int *) malloc(1 * sizeof(int));
         meal.sizeOfIngs = 0;
-        meal.ings = (int *) malloc(30 * sizeof(int));
+
         if (meal.ings == NULL)
         {
             exit(EXIT_FAILURE);
@@ -67,13 +68,11 @@ void InitializeMeals(FILE *file) {
         }
 
         char * token = strtok(tempString, ", { }");
+        
          // loop through the string to extract all other tokens
         while( token != NULL ) {
             meal.sizeOfIngs++;
-            // printf( " %d \n", counter); //printing each token
-            printf( " %d \n", atoi(token)); //printing each token
-            // HVORFOR VIRKER DET HER IKKE - på onsdag ANDERS HJÆLP
-            // meal.ings = (int *) realloc(meal.ings, counter + 1);
+            meal.ings = (int *) realloc(meal.ings, counter * sizeof(int));
             meal.ings[counter] = atoi(token);
             counter++;
             if (!strcmp("\n", token)){
@@ -85,31 +84,13 @@ void InitializeMeals(FILE *file) {
         meals[i] = meal;
     }
 
-            // printf("\n Meal Ings: %d \n", meals[0].ings[4]);
-            // printf("\n %d \n", meals[0].sizeOfIngs );
-        for (int n = 0; n < meals[1].sizeOfIngs; n++)
+    for (int i = 0; i < mealsize; i++) {
+        printf("\n Meal ID: %d \n", meals[i].id);
+        printf("\n Meal Name: %s \n", meals[i].name);
+        printf("\n Meal Price: %lf \n", meals[i].price);
+        for (int n = 0; n < meals[i].sizeOfIngs; n++)
         {
-            printf("\n Meal Ings: %d \n", meals[1].ings[n]);
+            printf("\n Meal Ings: %d \n", meals[i].ings[n]);
         } 
-
-    // printf("\n %d \n", meals[0].sizeOfIngs );
-
-    //     printf("\nMeal Name: %lu\n", sizeof(&meals[0].ings));
-    //     printf("\nMeal Name: %d\n", meals[0].ings[6]);
-    //     // printf("\nMeal Name: %lu\n", sizeof(&meals[0].ings)/ sizeof(meals[0].ings[0]));
-      
-    //     int arr_lenth = sizeof &meals[0].ings /sizeof meals[0].ings[0];
-    //     printf("\n  1-%d", *meals[0].ings);
-    //     printf("\n  2-%d", meals[0].ings[0]);
-    //     printf("\n array lenth: %d\n", arr_lenth);
-
-    // for (int i = 0; i < mealsize; i++) {
-    //     // printf("\n Meal ID: %d \n", meals[i].id);
-    //     // printf("\n Meal Name: %s \n", meals[i].name);
-    //     // printf("\n Meal Price: %lf \n", meals[i].price);
-    //     for (int n = 0; n < meals[i].sizeOfIngs; n++)
-    //     {
-    //         printf("\n Meal Ings: %d \n", meals[i].ings[n]);
-    //     } 
-    // }
+    }
 }
