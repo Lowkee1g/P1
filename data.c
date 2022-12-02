@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <malloc.h>
 
 Meals *meals; 
 Ingredients *ingredients;
@@ -27,9 +28,7 @@ void initializeStructs() {
     if(mealsFile == NULL || ingredientsFile == NULL) {
         exit(EXIT_FAILURE);
     }
-    printf("Allerede? \n");
     initializeMeals(mealsFile);
-    printf("Her\n");
     initializeIngredients(ingredientsFile);
 }
 
@@ -37,7 +36,6 @@ void initializeMeals(FILE *mealsFile) {
     
     // initialize mealszie by calling GetNumberOfLines on meals.txt file
     mealSize = getNumberOfLines(mealsFile);
-    printf("Kalder get numbers \n");
 
     // Initialize Meals
     meals = (Meals *) malloc(mealSize * sizeof(Meals));
@@ -46,7 +44,6 @@ void initializeMeals(FILE *mealsFile) {
     FILE *openMealsFileAgain = fopen("meals.txt", "r");
 
     if (meals == NULL || openMealsFileAgain == NULL){
-        printf("Inden exit");
         exit(EXIT_FAILURE);
     }
 
@@ -55,13 +52,14 @@ void initializeMeals(FILE *mealsFile) {
     Meals meal;
     // Loop through all meals.
     for (int i = 0; i < mealSize; i++) {
-        printf("I for");
         // Set a counter used to control ingredients mallock size and tempString to make ingredients array
         char tempString[100];
         int counter = 0;
 
         // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
+        printf("Det er faktisk malloc");
         meal.ings = (int *) malloc(1 * sizeof(int));
+        printf("Det er malloc");
         meal.sizeOfIngs = 0;
 
         if (meal.ings == NULL){
@@ -85,7 +83,7 @@ void initializeMeals(FILE *mealsFile) {
         while( token != NULL ) {
             // Increase size of ingredients in the struct and realloc the size of ingredients
             meal.sizeOfIngs++;
-            meal.ings = (int *) realloc(meal.ings, counter * sizeof(int));
+            meal.ings = (int *) realloc(meal.ings, 1 * sizeof(int));
             if (meal.ings == NULL)
             {
                 printf("3. exit ting");
@@ -123,6 +121,7 @@ void initializeIngredients(FILE *ingredientsFile) {
     FILE *openIngredientsFileAgain = fopen("ingredients.txt", "r");
 
     if (ingredients == NULL || openIngredientsFileAgain == NULL){
+
         exit(EXIT_FAILURE);
     }
 
