@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include "data.h"
 #include "searchMeals.h"
+#include "scaninput.h"
 
 int main(void){
   initializeStructs();
+  scanData();
   char **ings = (char **) malloc(2 * sizeof(char));
   ings[0] = "Spaghetti";
   ings[1] = "Noget andet end spaghetti";
@@ -15,5 +17,16 @@ int main(void){
   free(ingredients);
   free(foundmeals);
 
-  return 0;
+    //Load meals and ingrediences here
+
+    //Scan for data here
+    scanData();
+
+    //Search for meals based of the scan
+
+    //Sort the output here
+
+    //Output the data here
+
+    return 0;
 }
