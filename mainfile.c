@@ -5,19 +5,9 @@
 #include "scaninput.h"
 
 int main(void){
-  initializeStructs();
-  scanData();
-  char **ings = (char **) malloc(2 * sizeof(char));
-  ings[0] = "Spaghetti";
-  ings[1] = "Noget andet end spaghetti";
-  searchMeals(ings);
-  printf("Found meals %s \n", foundmeals[0][0].name);
-
-  free(meals);
-  free(ingredients);
-  free(foundmeals);
 
     //Load meals and ingrediences here
+    initializeStructs();
 
     //Scan for data here
     scanData();
@@ -27,6 +17,17 @@ int main(void){
     //Sort the output here
 
     //Output the data here
+
+    //Fuck all her
+    char **ings = (char **) malloc(2 * sizeof(char));
+    ings[0] = "Spaghetti";
+    ings[1] = "Noget andet end spaghetti";
+    searchMeals(ings);
+    printf("Found meals %s \n", foundmeals[0][0].name);
+
+    free(meals);
+    free(ingredients);
+    free(foundmeals);
 
     return 0;
 }
