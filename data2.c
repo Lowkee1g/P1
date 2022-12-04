@@ -76,7 +76,7 @@ void initializeMeals(FILE *mealsFile) {
 
         // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
         printf("meals[%d].ings bliver oprettet ", i);
-        meals[i].ings = (int *) calloc(0, 1 * sizeof(int)); printf("Running - calloc \n");
+        meals[i].ings = (int *) calloc(0, 1 * sizeof(int)); printf("Running - calloc \n"); // Anders: Min fejler her på 4. omgang
         if (meals[i].ings == NULL){
             printf("EXIT - meal.ings == null\n"); exit(EXIT_FAILURE); 
         }
