@@ -28,6 +28,10 @@ int main(void){
     printf("Found meals %s \n", foundmeals[0][0].name);
 
     //løkke med alle meals, hvor ings bliver freeet
+    for (int i = 0; i < mealSize; i++)
+    {
+      free(meals[i].ings);
+    }
     
     free(meals);
     free(ingredients);

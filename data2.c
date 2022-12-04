@@ -21,6 +21,13 @@ int getNumberOfLines(FILE *file);
 int main(int argc, char const *argv[])
 {
     initializeStructs();
+    for (int i = 0; i < mealSize; i++)
+    {
+      free(meals[i].ings);
+    }
+    
+    free(meals);
+    free(ingredients);
     return 0;
 }
 
@@ -37,9 +44,6 @@ void initializeStructs() {
     initializeMeals(mealsFile);
     initializeIngredients(ingredientsFile);
 }
-
-
-
 
 
 void initializeMeals(FILE *mealsFile) {
@@ -64,28 +68,30 @@ void initializeMeals(FILE *mealsFile) {
 
     // Loop through all meals.
     for (int i = 0; i < mealSize; i++) {
+        printf("MealsSize er: %d \n", mealSize);
         // Set a counter used to control ingredients mallock size and tempString to make ingredients array
         char tempString[100];
         int counter = 0;
-        printf("\nwe start:%d",i);
-        printf("%d", meals[1].id);
+        printf("last meals id = %d \n", meals[i - 1].id);
 
         // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
-        meals[i].ings = (int *) malloc(1 * sizeof(int)); printf("\nRunning - malloc");
-        meals[i].sizeOfIngs = 0;
-
+        printf("meals[%d].ings bliver oprettet ", i);
+        meals[i].ings = (int *) calloc(0, 1 * sizeof(int)); printf("Running - calloc \n");
         if (meals[i].ings == NULL){
             printf("EXIT - meal.ings == null\n"); exit(EXIT_FAILURE); 
         }
+
+        meals[i].sizeOfIngs = 0;
         
         // Read each line in meals.txt
         success = fscanf(openMealsFileAgain, "%d, %[^,], %lf, %s", &meals[i].id, &*meals[i].name, &meals[i].price, &*tempString);
-        printf("\nSuccess: %d - %d|%s|%lf|%s", success, meals[i].id, meals[i].name, meals[i].price, tempString);
+        printf("Success: %d - %d|%s|%lf|%s \n", success, meals[i].id, meals[i].name, meals[i].price, tempString);
 
         
         // If it fails break the loop
         if(success != 4) {
-            break; printf("Break: success is not 4");
+            printf("Break: success is not 4 \n");
+            break; 
         }
 
         // Break the tempString into tokens. Splitting the string at , { }.
@@ -102,7 +108,7 @@ void initializeMeals(FILE *mealsFile) {
                 printf("3. exit ting");
                 exit(EXIT_FAILURE);
             }
-            printf("\n-Loaded Ingredience: %d", counter);
+            printf("-Loaded Ingredience: %d \n", counter);
             
             // Convert the char into an integer and push it to ingredients array
             meals[i].ings[counter] = atoi(token);
@@ -116,12 +122,12 @@ void initializeMeals(FILE *mealsFile) {
             // When there is no tokents left to retrieve make token return null to stop the while loop
             token = strtok(NULL, ", { }");
         }
-        printf("\nStored: [%d|%s|%lf|%d]", meals[i].id, meals[i].name, meals[i].price, meals[i].ings[0]);
-        printf("\nexit");
+        printf("Stored: [%d|%s|%lf|%d] \n", meals[i].id, meals[i].name, meals[i].price, meals[i].ings[0]);
+        printf("end of loop \n");
     }
 
     fclose(openMealsFileAgain);
-    printf("Efter fclose");
+    printf("Efter fclose linje 123 \n");
 }
 
 void initializeIngredients(FILE *ingredientsFile) {
@@ -148,6 +154,7 @@ void initializeIngredients(FILE *ingredientsFile) {
         success = fscanf(openIngredientsFileAgain, "%d, %[^,], %lf", &ingredient.id, &*ingredient.name, &ingredient.price);
         // If it fails break the loop
         if(success != 3) {
+            printf("Linje 150 success er ikke 3\n");
             break;
         }
         ingredients[i] = ingredient;
