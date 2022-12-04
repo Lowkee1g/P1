@@ -10,9 +10,9 @@ Ingredients *ingredients;
 void changeMeal(int id, char* name, double price, int*  ingredientids);
 void changeIngredient(int id, char* name, double price);
 void initializeStructs();
-void InitializeMeals(FILE *mealsFile);
-void InitializeIngredients(FILE *ingredientsFile);
-int GetNumberOfLines(FILE *file);
+void initializeMeals(FILE *mealsFile);
+void initializeIngredients(FILE *ingredientsFile);
+int getNumberOfLines(FILE *file);
 
 void initializeStructs() {
 
@@ -25,19 +25,19 @@ void initializeStructs() {
         exit(EXIT_FAILURE);
     }
 
-    InitializeMeals(mealsFile);
-    InitializeIngredients(ingredientsFile);
+    initializeMeals(mealsFile);
+    initializeIngredients(ingredientsFile);
 }
 
-void InitializeMeals(FILE *mealsFile) {
+void initializeMeals(FILE *mealsFile) {
     
-    // initialize mealszie by calling GetNumberOfLines on meals.txt file
-    int mealSize = GetNumberOfLines(mealsFile);
+    // initialize mealszie by calling getNumberOfLines on meals.txt file
+    int mealSize = getNumberOfLines(mealsFile);
 
     // Initialize Meals
     meals = (Meals *) malloc(mealSize * sizeof(Meals));
 
-    // Open meals.txt agian and check for failure 
+    // Open meals.txt again and check for failure 
     FILE *openMealsFileAgain = fopen("meals.txt", "r");
 
     if (meals == NULL || openMealsFileAgain == NULL){
@@ -49,11 +49,11 @@ void InitializeMeals(FILE *mealsFile) {
     Meals meal;
     // Loop through all meals.
     for (int i = 0; i < mealSize; i++) {
-        // Set a counter used to control ingredients mallock size and tempString to make ingredients array
+        // Set a counter used to control ingredients malloc size and tempString to make ingredients array
         char tempString[100];
         int counter = 0;
 
-        // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
+        // Intialize ingredients malloc and set size to 1 and set the sizeOfIngs to 0
         meal.ings = (int *) malloc(1 * sizeof(int));
         meal.sizeOfIngs = 0;
 
@@ -87,7 +87,7 @@ void InitializeMeals(FILE *mealsFile) {
                 break;
             }
             
-            // When there is no tokents left to retrieve make token return null to stop the while loop
+            // When there is no tokens left to retrieve make token return null to stop the while loop
             token = strtok(NULL, ", { }");
         }
         // Put each meal into the array of meals
@@ -97,9 +97,9 @@ void InitializeMeals(FILE *mealsFile) {
     fclose(openMealsFileAgain);
 }
 
-void InitializeIngredients(FILE *ingredientsFile) {
-    // initialize ingredientsSize by calling GetNumberOfLines on meals.txt file
-    int ingredientsSize = GetNumberOfLines(ingredientsFile);
+void initializeIngredients(FILE *ingredientsFile) {
+    // initialize ingredientsSize by calling getNumberOfLines on meals.txt file
+    int ingredientsSize = getNumberOfLines(ingredientsFile);
     
     // Initialize ingredients
     ingredients = (Ingredients *) malloc(ingredientsSize * sizeof(Ingredients));
@@ -127,7 +127,7 @@ void InitializeIngredients(FILE *ingredientsFile) {
     fclose(openIngredientsFileAgain);
 }
 
-int GetNumberOfLines(FILE *file) {
+int getNumberOfLines(FILE *file) {
       // Get number of meals in meals.txt to make a malloc
     int sampleChr = getc(file);
     int numberOfLines = 1;
