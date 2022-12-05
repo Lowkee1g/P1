@@ -25,7 +25,7 @@ int main(void){
     // ings[0] = "Spaghetti";
     // ings[1] = "Noget andet end spaghetti";
     // searchMeals(ings);
-    printf("Found meals %s \n", foundmeals[0][0].name);
+    // printf("Found meals %s \n", foundmeals[0][0].name);
 
     //løkke med alle meals, hvor ings bliver freeet
     for (int i = 0; i < mealSize; i++)
@@ -35,7 +35,7 @@ int main(void){
     
     free(meals);
     free(ingredients);
-    free(foundmeals);
+    // free(foundmeals);
 
     return 0;
 }
