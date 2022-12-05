@@ -121,14 +121,14 @@ void initializeMeals(FILE *mealsFile)
     }
 
     fclose(openMealsFileAgain);
-    for (int i = 0; i < mealSize; i++)
-    {
-        printf("Name of meal: %s\n", meals[i].name);
-        for (int n = 0; n < meals[i].sizeOfIngs; n++)
-        {
-            printf("Meals[i].ings[n]: %d\n", meals[i].ings[n]);
-        }
-    }
+    // for (int i = 0; i < mealSize; i++)
+    // {
+    //     printf("Name of meal: %s\n", meals[i].name);
+    //     for (int n = 0; n < meals[i].sizeOfIngs; n++)
+    //     {
+    //         printf("Meals[i].ings[n]: %d\n", meals[i].ings[n]);
+    //     }
+    // }
 }
 
 void initializeIngredients(FILE *ingredientsFile)

@@ -24,8 +24,14 @@ void scanData() {
     printf("\nInsert ingredients (Type next to end): ");
     int size = 0;  
     while (1) {
+        printf("Før gets \n");
         gets(array[size]);
-        if (strcmp(array[size],"next\0") == 0) {array[size] = (char *) ' '; break;}   
+        printf("Efter gets \n");
+        if (strcmp(array[size],"next\0") == 0) {
+            printf("Break \n");
+            array[size] = (char *) ' '; 
+            break;
+        }   
         printf("\nnext ingredient: ");
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1

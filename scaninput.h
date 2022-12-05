@@ -1,9 +1,8 @@
 #ifndef SCANINPUT_H
 #define SCANINPUT_H
-    
 
-    extern char **array;
+extern char **array;
 
-    void scanData();
+void scanData();
 
 #endif
