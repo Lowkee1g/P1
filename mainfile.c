@@ -38,5 +38,8 @@ int main(void){
     free(ingredients);
     // free(foundmeals);
 
+    //Denne her skal ind i searchMeals når den er done 
+    free(array);
+
     return 0;
 }

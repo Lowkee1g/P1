@@ -15,18 +15,23 @@ void scanData() {
     //int c;
 
     //Opretter 2D array af strings
-    array = malloc(1 * sizeof *array);
-    for (int i = 0; i < 50; i++) {
-        array[i] = malloc(sizeof *array[i]);
+    array = malloc(50 * sizeof(char));
+    if (array == NULL)
+    {
+        exit(EXIT_FAILURE);
     }
+    
 
     //Går gennem inputs fra brugen indtil at der bliver skrevet next
     printf("\nInsert ingredients (Type next to end): ");
-    int size = 0;  
+    int size = 0;
     while (1) {
-        printf("Før gets \n");
+        array[size] = malloc(50 * sizeof(char));
+        if (array[size] == NULL)
+        {
+            exit(EXIT_FAILURE);
+        }
         gets(array[size]);
-        printf("Efter gets \n");
         if (strcmp(array[size],"next\0") == 0) {
             printf("Break \n");
             array[size] = (char *) ' '; 
