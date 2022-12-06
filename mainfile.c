@@ -14,9 +14,10 @@ int main(void){
     printf("Efter data. Ind i scan \n");
     scanData();
 
-    printf("Efter scan \n");
     //Search for meals based of the scan
-
+    printf("Efter scan \n");
+    searchMeals();
+    printf("Meal found: %s \n", foundmeals[0][0].name);
     //Sort the output here
 
     //Output the data here

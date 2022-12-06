@@ -15,7 +15,7 @@ void scanData() {
     //int c;
 
     //Opretter 2D array af strings
-    array = malloc(50 * sizeof(char));
+    array = malloc(50 * sizeof(char)); 
     if (array == NULL)
     {
         exit(EXIT_FAILURE);
@@ -27,20 +27,19 @@ void scanData() {
     int size = 0;
     while (1) {
         array[size] = malloc(50 * sizeof(char));
-        if (array[size] == NULL)
-        {
+        if (array[size] == NULL){
             exit(EXIT_FAILURE);
         }
-        gets(array[size]);
-        if (strcmp(array[size],"next\0") == 0) {
+        // scanf("%[^\n]", array[size]);
+        fgets(array[size], 50, stdin); // fgets tager en bestemt størrelse 
+        if (strcmp(array[size],"next\n") == 0) {
             printf("Break \n");
             array[size] = (char *) ' '; 
             break;
-        }   
+        }
         printf("\nnext ingredient: ");
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
-        array = realloc(array, 1);
         size++;
     }    
 

@@ -2,61 +2,60 @@
 #include <stdlib.h>
 #include <string.h>
 #include "data.h"
+#include "scaninput.h" 
 
 Meals **foundmeals;
 
-void searchMeals(char **ings);
-int contains(int a, int *list);
+void searchMeals();
+int contains(int a, int *list, int size);
 
-void searchMeals(char **ings){
-    int size = sizeof(ings)/sizeof(ings[0]);
-    Meals **foundmeals = (Meals **) malloc(size * sizeof(Meals)); 
+void searchMeals(){
+    // int size = sizeof(array)/sizeof(array);
+    Meals **foundmeals = (Meals **) malloc(50 * sizeof(Meals)); 
     if (foundmeals == NULL){
+        printf("searchMeals exit failture linje 15 \n");
         exit(EXIT_FAILURE);
     }
+    printf("foundmeals oprettet \n");
 
-    int *ingids = (int *) malloc(size * sizeof(int));
+    int *ingids = (int *) malloc(50 * sizeof(int));
     if (ingids == NULL){
+        printf("searchMeals exit failture linje 21 \n");
         exit(EXIT_FAILURE);
     }
+    printf("ingsid oprettet \n");
     
-    for (int i = 0; i < size; i++){ // For each input ingredient
+    for (int i = 0; i < 50; i++){ // For each input ingredient
         for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
-            if(!strcmp(ings[i], ingredients[j].name)){ // Find the given ingredients id.
+            if(!strcmp(array[i], ingredients[j].name)){ // Find the given ingredients id.
                 ingids[i] = ingredients[j].id;
-            }
+            }             
         }
     }
 
-    for (int i = 0; i < size; i++){ // Make a list of meals for each ingredient
+    for (int i = 0; i < 50; i++){ // Make a list of meals for each ingredient
         foundmeals[i] = (Meals *) malloc(mealSize * sizeof(Meals));
         if (foundmeals == NULL){
+            printf("searchMeals exit failture linje 36 \n");
             exit(EXIT_FAILURE);
         }
     }
 
     int counter; 
-    for (int i = 0; i < size ; i++){ // Iterate through list of ingredients
+    for (int i = 0; i < 50 ; i++){ // Iterate through list of ingredients
     counter = 0;
         for (int j = 0; j < mealSize; j++) { // Iterate through all meals to find the meals with matching ingredients
-            if (contains(ingids[i], meals[j].ings)){
+            if (contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs)){
                 foundmeals[i][counter] = meals[j];
                 counter++;
             }
         }
     }
-
     free(ingids);
-
-    // Hvis det er en mulighed at lave første liste i foundmeals til at være de retter, som har flest til fælles, så kan search og sort meals
-    // være den samme funktion. https://stackoverflow.com/questions/58306236/can-i-use-contains-for-integer-list .... Det kan man sikkert ikke,
-    // men nu er linket her
-
-    // This tho https://www.tutorialkart.com/c-programming/c-check-if-array-contains-specified-element/
 }
 
-int contains(int a, int *list){
-    int size = sizeof list / sizeof list[0];
+int contains(int a, int *list, int size){
+    printf("I contains \n");
     int isElementPresent = 0;
 
     for (int i = 0; i < size; i++) {
