@@ -43,11 +43,14 @@ void searchMeals(){
     }
 
     int counter; 
-    for (int i = 0; i < inputSize ; i++){ // Iterate through list of ingredients
+    for (int i = 0; i < inputSize ; i++){ // Iterate through list of input ingredients
     counter = 0;
         for (int j = 0; j < mealSize; j++) { // Iterate through all meals to find the meals with matching ingredients
+        // printf("- %d -", contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs));
             if (contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs)){
+                // printf("Contains tingen \n");
                 foundmeals[i][counter] = meals[j];
+                printf("%s, %d \n", foundmeals[i][counter-1].name, foundmeals[i][counter-1].id);
                 counter++;
             }
         }
@@ -55,10 +58,10 @@ void searchMeals(){
     free(ingids);
 }
 
+// Funktion returnerer 1, hvis listen list indeholder a
 int contains(int a, int *list, int size){
     for (int i = 0; i < size; i++) {
         if (list[i] == a) {
-            printf("\n \n \ncontains returnerer 1 \n \n \n");
             return 1;
         }
     }

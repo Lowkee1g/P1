@@ -5,24 +5,7 @@
 //https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
 char **array;
-int size = 0;
-
-int main(void)
-{
-    scanData();
-
-
-    for (int i = 0; i < size; i++)
-    {
-        free(array[i]); // free memory for each string in the array
-    }
-    free(array);
-
-    return 0;
-
-    
-}
-
+int inputSize = 0;
 
 void scanData() {
     //Peudokode
@@ -44,34 +27,34 @@ void scanData() {
     printf("\nInsert ingredients (Type next to end): ");
 
     while (1) {
-        printf("size - %d\n", size);
-        array[size] = malloc(50 * sizeof(char));
-        printf(" after");
-        if (array[size] == NULL){
-            printf("Exit here - %d", size);
+        printf("size - %d\n", inputSize);
+        array[inputSize] = malloc(50 * sizeof(char));
+        // printf(" after");
+        if (array[inputSize] == NULL){
+            printf("Exit here - %d", inputSize);
             exit(EXIT_FAILURE);
         }
         // scanf("%[^\n]", array[size]);
-        fgets(array[size], 50, stdin); // fgets tager en bestemt størrelse 
+        fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
         
-        if (strcmp(array[size],"next\n") == 0) {
+        if (strcmp(array[inputSize],"next\n") == 0) {
             printf("Break \n");
-            array[size] = (char *) ' '; 
+            array[inputSize] = (char *) ' '; 
             break;
         }
 
         printf("\nnext ingredient: ");
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
-        size++;
-        array = realloc(array, (1 + size) * sizeof(char *));
+        inputSize++;
+        array = realloc(array, (1 + inputSize) * sizeof(char *));
     }
 
 
     //Debug
-    printf("size of Malloc: %d\n", size);
+    // printf("size of Malloc: %d\n", inputSize);
 
-    for (int i = 0; i < size; i++) {
-        printf("%d - %s",i,array[i]);
+    for (int i = 0; i < inputSize; i++) {
+        // printf("%d - %s",i,array[i]);
     }
 }
