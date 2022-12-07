@@ -10,7 +10,7 @@ void searchMeals();
 int contains(int a, int *list, int size);
 
 void searchMeals(){
-    Meals **foundmeals = (Meals **) malloc(inputSize * sizeof(Meals)); 
+    Meals **foundmeals = (Meals **) malloc(inputSize * sizeof(Meals *)); 
     if (foundmeals == NULL){
         printf("searchMeals exit failure linje 15 \n");
         exit(EXIT_FAILURE);
@@ -23,10 +23,10 @@ void searchMeals(){
     }
     
     for (int i = 0; i < inputSize; i++){ // For each input ingredient
-    printf("Første løkke og her er ingssize %d og inputSize er %d \n", ingredientsSize, inputSize);
         for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
-        printf("2");
+        printf("String compare. String 1 \n.%s.\n, string 2 %s, %d \n", array[i], ingredients[j].name, strcmp(array[i], ingredients[j].name));
             if(!strcmp(array[i], ingredients[j].name)){ // Find the given ingredients id.
+            printf("\n \nJeg printer noget her \n \n");
             printf("Der blev fundet %s og %s som matcher", array[i], ingredients[j].name);
                 ingids[i] = ingredients[j].id;
             }             
@@ -50,7 +50,7 @@ void searchMeals(){
             if (contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs)){
                 // printf("Contains tingen \n");
                 foundmeals[i][counter] = meals[j];
-                printf("%s, %d \n", foundmeals[i][counter-1].name, foundmeals[i][counter-1].id);
+                printf("%s, %d \n", foundmeals[i][counter].name, foundmeals[i][counter].id);
                 counter++;
             }
         }
