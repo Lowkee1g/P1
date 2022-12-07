@@ -27,7 +27,6 @@ void scanData() {
     printf("\nInsert ingredients (Type next to end): ");
 
     while (1) {
-        printf("size - %d\n", inputSize);
         array[inputSize] = malloc(50 * sizeof(char));
         // printf(" after");
         if (array[inputSize] == NULL){
@@ -41,7 +40,7 @@ void scanData() {
         array[inputSize][strlen(array[inputSize]) - 1] = '\0';
 
 
-        if (strcmp(array[inputSize],"next\n") == 0) {
+        if (strcmp(array[inputSize],"next") == 0) {
             printf("Break \n");
             array[inputSize] = (char *) ' '; 
             break;

@@ -22,13 +22,6 @@ int main(void){
 
     //Output the data here
 
-    //Fuck all her
-    // char **ings = (char **) malloc(2 * sizeof(char));
-    // ings[0] = "Spaghetti";
-    // ings[1] = "Noget andet end spaghetti";
-    // searchMeals(ings);
-    // printf("Found meals %s \n", foundmeals[0][0].name);
-
     //løkke med alle meals, hvor ings bliver freeet
     for (int i = 0; i < mealSize; i++)
     {
@@ -37,7 +30,7 @@ int main(void){
     
     free(meals);
     free(ingredients);
-    // free(foundmeals);
+    free(foundmeals);
 
     //Denne her skal ind i searchMeals når den er done 
     free(array);
