@@ -2,6 +2,7 @@
 #define SCANINPUT_H
 
 extern char **array;
+extern int inputSize;
 
 void scanData();
 
