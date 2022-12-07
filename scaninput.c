@@ -36,7 +36,11 @@ void scanData() {
         }
         // scanf("%[^\n]", array[size]);
         fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
-        
+
+        //remove newline
+        array[inputSize][strlen(array[inputSize]) - 1] = '\0';
+
+
         if (strcmp(array[inputSize],"next\n") == 0) {
             printf("Break \n");
             array[inputSize] = (char *) ' '; 
