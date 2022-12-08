@@ -3,6 +3,7 @@
 #include "data.h"
 #include "searchMeals.h"
 #include "scaninput.h"
+#include "sortMeals.h" 
 
 int main(void){
 
@@ -17,9 +18,11 @@ int main(void){
     //Search for meals based of the scan
     printf("Efter scan \n");
     searchMeals();
-    printf("Meal found: %s \n", foundmeals[0][0].name);
+    printf("Efter searchMeals \n");
+    // printf("Meal found: %d \n", foundmeals[1][0].id);
     //Sort the output here
-
+    sortMeals();
+    printf("Ud af sortMeals \n");
     //Output the data here
 
     //løkke med alle meals, hvor ings bliver freeet
@@ -31,6 +34,7 @@ int main(void){
     free(meals);
     free(ingredients);
     free(foundmeals);
+    free(mealResults);
 
     //Denne her skal ind i searchMeals når den er done 
     free(array);

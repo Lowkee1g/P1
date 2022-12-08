@@ -11,7 +11,7 @@ void searchMeals();
 int contains(int a, int *list, int size);
 
 void searchMeals(){
-    Meals **foundmeals = (Meals **) malloc(inputSize * sizeof(Meals *)); 
+    Meals **foundmeals = (Meals **) malloc(inputSize * sizeof(Meals **)); 
     if (foundmeals == NULL){
         printf("searchMeals exit failure linje 15 \n");
         exit(EXIT_FAILURE);
@@ -23,6 +23,7 @@ void searchMeals(){
         exit(EXIT_FAILURE);
     }
     
+    // Convert ingredients from char to int
     for (int i = 0; i < inputSize; i++){ // For each input ingredient
         for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
             array[i][0] = tolower(array[i][0]);
@@ -34,13 +35,15 @@ void searchMeals(){
         printf("\n");
     }
 
+    // Allocate space for meals in foundmeals
     for (int i = 0; i < inputSize; i++){ // Make a list of meals for each ingredient
-        foundmeals[i] = (Meals *) malloc(mealSize * sizeof(Meals));
+        foundmeals[i] = (Meals *) malloc(mealSize * sizeof(Meals *));
         if (foundmeals == NULL){
             printf("searchMeals exit failture linje 36 \n");
             exit(EXIT_FAILURE);
         }
     }
+
 
     int counter; 
     for (int i = 0; i < inputSize ; i++){ // Iterate through list of input ingredients
@@ -54,6 +57,7 @@ void searchMeals(){
                 counter++;
             }
         }
+        foundmeals[i][counter].id = NULL;
     }
     free(ingids);
 }
