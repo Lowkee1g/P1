@@ -1,6 +1,6 @@
 1, Smør, 0
 2, Spaghetti, 0
-3, pasta, 0
+3, Pasta, 0
 4, Bacon, 0
 5, Løg, 0
 6, Hvidløg, 0

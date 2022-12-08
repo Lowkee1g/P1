@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "data.h"
 #include "scaninput.h" 
 
@@ -24,10 +25,9 @@ void searchMeals(){
     
     for (int i = 0; i < inputSize; i++){ // For each input ingredient
         for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
-        printf("String compare. String 1 \n.%s.\n, string 2 %s, %d \n", array[i], ingredients[j].name, strcmp(array[i], ingredients[j].name));
+            array[i][0] = tolower(array[i][0]);
+            ingredients[j].name[0] = tolower(ingredients[j].name[0]);
             if(!strcmp(array[i], ingredients[j].name)){ // Find the given ingredients id.
-            printf("\n \nJeg printer noget her \n \n");
-            printf("Der blev fundet %s og %s som matcher", array[i], ingredients[j].name);
                 ingids[i] = ingredients[j].id;
             }             
         }
