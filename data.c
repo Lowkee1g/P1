@@ -7,8 +7,6 @@
 Meals *meals;
 Ingredients *ingredients;
 
-void changeMeal(int id, char *name, double price, int *ingredientids);
-void changeIngredient(int id, char *name, double price);
 void initializeStructs();
 void initializeMeals(FILE *mealsFile);
 void initializeIngredients(FILE *ingredientsFile);
@@ -60,7 +58,6 @@ void initializeMeals(FILE *mealsFile)
 
         // Set a counter used to control ingredients mallock size and tempString to make ingredients array
         char tempString[100];
-        char tempStringTwo[100];
         int counter = 0;
 
         // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
@@ -81,7 +78,6 @@ void initializeMeals(FILE *mealsFile)
         }
 
         // Break the tempString into tokens. Splitting the string at , { }.
-        strcpy(tempStringTwo, tempString);
         char *token = strtok(tempString, ", { }");
         // loop through the string to extract all other tokens
         while (token != NULL)
@@ -89,6 +85,11 @@ void initializeMeals(FILE *mealsFile)
             // Increase size of ingredients in the struct and realloc the size of ingredients
 
             meal.sizeOfIngs++;
+            meal.ings = (int *)realloc(meal.ings, (1 + meal.sizeOfIngs) * sizeof(int));
+
+            /*      int val = (int)strtol(breakAgain, (char **)NULL, 10); */
+            meal.ings[counter] = atoi(token);
+            counter++;
 
             // Break at end of file
             if (!strcmp("\n", token))
@@ -99,36 +100,11 @@ void initializeMeals(FILE *mealsFile)
             // When there is no tokents left to retrieve make token return null to stop the while loop
             token = strtok(NULL, ", { }");
         }
-        char *breakAgain = strtok(tempStringTwo, ", { }");
-
-        while (breakAgain != NULL)
-        {
-            meal.ings = (int *)realloc(meal.ings, meal.sizeOfIngs * sizeof(int));
-
-            int val = (int)strtol(breakAgain, (char **)NULL, 10);
-            meal.ings[counter] = val;
-            counter++;
-
-            // Break at end of file
-            if (!strcmp("\n", breakAgain))
-            {
-                break;
-            }
-            breakAgain = strtok(NULL, ", { }");
-        }
         // Put each meal into the array of meals
         meals[i] = meal;
     }
 
     fclose(openMealsFileAgain);
-    // for (int i = 0; i < mealSize; i++)
-    // {
-    //     printf("Name of meal: %s\n", meals[i].name);
-    //     for (int n = 0; n < meals[i].sizeOfIngs; n++)
-    //     {
-    //         printf("Meals[i].ings[n]: %d\n", meals[i].ings[n]);
-    //     }
-    // }
 }
 
 void initializeIngredients(FILE *ingredientsFile)
