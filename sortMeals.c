@@ -4,11 +4,12 @@
 #include <stdlib.h>
 #include "searchMeals.h"
 #include "data.h"
+#include "scaninput.h"
 
 
 void sortMeals();
 void mealsToIds();
-int comp(const int * a, const int * b);
+int comp(const void * a, const void * b);
 
 int *mealIds; // Vi skal returnere 10 meals
 int *mealResults;
@@ -17,7 +18,7 @@ int size = 3;
 
 void sortMeals(){
     printf("Kommer ind i sort \n");
-    mealIds = (int *) malloc(1 * sizeof(int));
+    mealIds = (int *) malloc(1 * sizeof(int)); 
     mealResults = (int *) malloc(3 * sizeof(int));
     if (mealResults == NULL || mealResults == NULL){
         exit(EXIT_FAILURE);
@@ -56,11 +57,13 @@ void sortMeals(){
 void mealsToIds(){
     // Gather all ids of meals in a list of ints. 
     printf("mealsToIds her \n");
+    printf("Her er et id fra foundmeals: %d \n", foundmeals[0][-1].id);
     counter = 0;
-    for (int i = 0; i < mealSize; i++){
-        int j = 0;
+    int j = 0;
+    for (int i = 0; i < inputSize; i++){
+        j = 0;
         printf("Lige inden foundmeals tjek \n");
-        while (foundmeals[i][j].id != NULL){
+        while (foundmeals[i][j].id != -1){
             printf("Lige inden foundmeals tjek \n");
             mealIds[counter] = foundmeals[i][j].id;
             counter++;
@@ -75,6 +78,6 @@ void mealsToIds(){
     }
 }
 
-int comp(const int * a, const int * b){
-    return *a - *b;
+int comp(const void * a, const void * b){
+    return (*(int *)a - *(int *)b);
 }

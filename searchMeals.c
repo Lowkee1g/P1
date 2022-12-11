@@ -51,13 +51,15 @@ void searchMeals(){
         for (int j = 0; j < mealSize; j++) { // Iterate through all meals to find the meals with matching ingredients
         // printf("- %d -", contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs));
             if (contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs)){
-                // printf("Contains tingen \n");
                 foundmeals[i][counter] = meals[j];
+                printf("Længste og grimmeste print nogensinde: foundmeals[%d][%d].id = %d \n", i, counter, foundmeals[i][counter].id);
+                // printf("Contains tingen \n");
                 printf("%s, %d \n", foundmeals[i][counter].name, foundmeals[i][counter].id);
                 counter++;
             }
         }
-        foundmeals[i][counter].id = NULL;
+        foundmeals[i][counter].id = -1; // -1 tells that there are no more meals in foundmeals[i]
+        printf("foundmeals[0][0].id er %d, foundmeals[%d][%d].id er %d \n", foundmeals[0][0].id, i, counter, foundmeals[i][counter].id);
     }
     free(ingids);
 }

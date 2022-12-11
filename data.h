@@ -2,7 +2,7 @@
 #define DATA_H
 
 typedef struct Meals {
-  int id;       
+  int id;
   char name[50];
   double price;
   int sizeOfIngs;

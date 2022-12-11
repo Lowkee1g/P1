@@ -35,7 +35,7 @@ void scanData() {
         array[inputSize][strlen(array[inputSize]) - 1] = '\0';
 
         //Hvis der bliver indtastet "next", så stopper den
-        if (strcmp(array[inputSize],"next\n") == 0) {
+        if (strcmp(array[inputSize],"next") == 0) {
             printf("Break \n");
             array[inputSize] = (char *) ' '; 
             break;

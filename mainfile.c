@@ -19,7 +19,7 @@ int main(void){
     printf("Efter scan \n");
     searchMeals();
     printf("Efter searchMeals \n");
-    // printf("Meal found: %d \n", foundmeals[1][0].id);
+    // printf("Meal found: %d \n", foundmeals[1][0].id); //Det her virker mega meget ikke aaah
     //Sort the output here
     sortMeals();
     printf("Ud af sortMeals \n");
