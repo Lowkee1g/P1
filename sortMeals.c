@@ -8,7 +8,7 @@
 
 
 void sortMeals(Meals **found);
-void mealsToIds();
+void mealsToIds(Meals **found);
 int comp(const void * a, const void * b);
 
 int *mealIds; // Vi skal returnere 10 meals
@@ -55,13 +55,16 @@ void mealsToIds(Meals **found){
     // Gather all ids of meals in a list of ints. 
     counter = 0;
     int j = 0;
+    
     for (int i = 0; i < inputSize; i++){
+        printf("inputsize: %d\n", inputSize);
         j = 0;
-        while (found[i][j].id != -1){
+        while (found[i][j].id <= 514 && found[i][j].id >= 0){
+            // printf("%d \n", found[i][j].id);
             mealIds[counter] = found[i][j].id;
             printf("found[%d][%d].id = %d \n", i, j, found[i][j].id);
             counter++;
-            realloc(mealIds, counter * sizeof(int));
+            mealIds = realloc(mealIds, ( 1+ counter) * sizeof(int));
             j++;
         }
     }
