@@ -21,8 +21,7 @@ int main(void){
     printf("Efter searchMeals \n");
     // printf("Meal found: %d \n", foundmeals[1][0].id); //Det her virker mega meget ikke aaah
     //Sort the output here
-    sortMeals();
-    printf("Ud af sortMeals \n");
+    printf("mealresults liste %d", mealResults[0]);
     //Output the data here
 
     //løkke med alle meals, hvor ings bliver freeet
@@ -33,7 +32,6 @@ int main(void){
     
     free(meals);
     free(ingredients);
-    free(foundmeals);
     free(mealResults);
 
     //Denne her skal ind i searchMeals når den er done 

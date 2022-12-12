@@ -7,7 +7,7 @@
 #include "scaninput.h"
 
 
-void sortMeals();
+void sortMeals(Meals **found);
 void mealsToIds();
 int comp(const void * a, const void * b);
 
@@ -16,8 +16,7 @@ int *mealResults;
 int counter;
 int size = 3;
 
-void sortMeals(){
-    printf("Kommer ind i sort \n");
+void sortMeals(Meals **found){
     mealIds = (int *) malloc(1 * sizeof(int)); 
     mealResults = (int *) malloc(3 * sizeof(int));
     if (mealResults == NULL || mealResults == NULL){
@@ -26,16 +25,14 @@ void sortMeals(){
     for (int k = 0; k < size; k++){
         mealResults[k] = 0;
     }
-    printf("Mallocs i sort er done \n");
 
-    mealsToIds();
+    mealsToIds(found);
     
     qsort(mealIds, counter, sizeof(int), comp);
     int mostInCommonId = -1;
     int mostDuplicates = 0;
     int tempCounter = 1;
     for (int i = 0; i < size; i++){
-        printf("Inde i første løkke i sort \n");
         for (int j = 1; j < counter; j++){
             if (mealIds[j] == mealIds[j - 1]){
                 if (!contains(mealIds[j], mealResults, size)){
@@ -54,30 +51,22 @@ void sortMeals(){
     free(mealIds);
 }
 
-void mealsToIds(){
+void mealsToIds(Meals **found){
     // Gather all ids of meals in a list of ints. 
-    printf("mealsToIds her \n");
-    printf("Her er et id fra foundmeals: %d \n", foundmeals[0][-1].id);
     counter = 0;
     int j = 0;
     for (int i = 0; i < inputSize; i++){
         j = 0;
-        printf("Lige inden foundmeals tjek \n");
-        while (foundmeals[i][j].id != -1){
-            printf("Lige inden foundmeals tjek \n");
-            mealIds[counter] = foundmeals[i][j].id;
+        while (found[i][j].id != -1){
+            mealIds[counter] = found[i][j].id;
+            printf("found[%d][%d].id = %d \n", i, j, found[i][j].id);
             counter++;
-            printf("Før realloc i sort\n");
             realloc(mealIds, counter * sizeof(int));
-            printf("Efter realloc i sort\n");
             j++;
         }
-        counter--;
-        realloc(mealIds, counter * sizeof(int));
-        printf("Efter anden realloc i sort\n");
     }
 }
 
 int comp(const void * a, const void * b){
-    return (*(int *)a - *(int *)b);
+    return (*(int *)b - *(int *)a);
 }

@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include "data.h"
 #include "scaninput.h" 
+#include "sortMeals.h"
 
 Meals **foundmeals;
 
@@ -59,9 +60,11 @@ void searchMeals(){
             }
         }
         foundmeals[i][counter].id = -1; // -1 tells that there are no more meals in foundmeals[i]
-        printf("foundmeals[0][0].id er %d, foundmeals[%d][%d].id er %d \n", foundmeals[0][0].id, i, counter, foundmeals[i][counter].id);
     }
+    sortMeals(foundmeals);
+    
     free(ingids);
+    free(foundmeals);
 }
 
 // Funktion returnerer 1, hvis listen list indeholder a
