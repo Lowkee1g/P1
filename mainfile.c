@@ -1,27 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "data.h"
+#include "searchMeals.h"
 #include "scaninput.h"
+#include "sortMeals.h" 
 
 int main(void){
-  // printf("Pleeeease skriv 7: %d \n", mealssize);
-  initializeStructs();
-  // printf("main: meal id %d \n", meals[0].id);
-  // printf("Tager noget fra første ret: %s", meals[0].name);
-
-  // free(meals);
-  // free(ingredients);
-  // free(foundmeals);
 
     //Load meals and ingrediences here
+    initializeStructs();
 
     //Scan for data here
     scanData();
 
     //Search for meals based of the scan
-
-    //Sort the output here
+    searchMeals();
 
     //Output the data here
+
+    //løkke med alle meals, hvor ings bliver freeet
+    for (int i = 0; i < mealSize; i++)
+    {
+      free(meals[i].ings);
+    }
+    
+    free(meals);
+    free(ingredients);
+    free(mealResults);
+
+    //Denne her skal ind i searchMeals når den er done 
+    free(array);
 
     return 0;
 }
