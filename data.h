@@ -2,7 +2,7 @@
 #define DATA_H
 
 typedef struct Meals {
-  int id;       
+  int id;
   char name[50];
   double price;
   int sizeOfIngs;
@@ -15,8 +15,8 @@ typedef struct Ingredients {
   double price;
 } Ingredients;
 
-extern int mealssize;
-extern int ingredientssize;
+extern int mealSize;
+extern int ingredientsSize;
 
 void initializeStructs();
 

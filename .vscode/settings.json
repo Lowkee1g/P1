@@ -7,6 +7,7 @@
         "random": "c",
         "sstream": "c",
         "string": "c",
-        "iosfwd": "c"
+        "iosfwd": "c",
+        "scaninput.h": "c"
     }
 }
