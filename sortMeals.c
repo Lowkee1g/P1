@@ -59,12 +59,11 @@ void mealsToIds(Meals **found){
     for (int i = 0; i < inputSize; i++){
         printf("inputsize: %d\n", inputSize);
         j = 0;
-        while (found[i][j].id <= 514 && found[i][j].id >= 0){
-            // printf("%d \n", found[i][j].id);
+        while (found[i][j].id != -1){
             mealIds[counter] = found[i][j].id;
             printf("found[%d][%d].id = %d \n", i, j, found[i][j].id);
             counter++;
-            mealIds = realloc(mealIds, ( 1+ counter) * sizeof(int));
+            mealIds = (int *) realloc(mealIds, (counter) * sizeof(int *));
             j++;
         }
     }
