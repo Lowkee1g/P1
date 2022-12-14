@@ -15,9 +15,6 @@ int main(void){
 
     //Search for meals based of the scan
     searchMeals();
-    printf("foundmeals er good \n");
-    printf("foundmeals[0].name = %d \n", foundmeals[0].id);
-    printf("foundmeals er stadig good \n");
     //Output the data here
     
     free(meals);
