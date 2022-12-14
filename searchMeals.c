@@ -12,7 +12,7 @@ void searchMeals();
 int contains(int a, int *list, int size);
 
 void searchMeals(){
-    Meals **foundmeals = (Meals **) malloc(inputSize * sizeof(Meals **)); 
+    foundmeals = (Meals **) malloc(inputSize * sizeof(Meals **)); 
     if (foundmeals == NULL){
         printf("searchMeals exit failure linje 15 \n");
         exit(EXIT_FAILURE);

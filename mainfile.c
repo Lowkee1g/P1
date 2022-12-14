@@ -15,6 +15,7 @@ int main(void){
 
     //Search for meals based of the scan
     searchMeals();
+    printf("Printer foundmeals[0][0].id = %d \n", foundmeals[0][0].id);
 
     //Output the data here
 
