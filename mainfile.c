@@ -3,12 +3,22 @@
 #include "data.h"
 #include "searchMeals.h"
 #include "scaninput.h"
-#include "sortMeals.h" 
+#include "sortMeals.h"
+#include "test.h" 
+
+void runAllTests(void) {
+  testSpaghettiBolognese();
+  testGraeskarsuppe();
+  testScrambledEggs();
+  testWrongMuffins();
+  testRibbenstegIngredients();
+}
 
 int main(void){
 
     //Load meals and ingrediences here
     initializeStructs();
+    runAllTests();
 
     //Scan for data here
     scanData();
