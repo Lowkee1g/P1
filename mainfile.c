@@ -15,21 +15,23 @@ int main(void){
 
     //Search for meals based of the scan
     searchMeals();
-
+    printf("foundmeals er good \n");
+    printf("foundmeals[0].name = %d \n", foundmeals[0].id);
+    printf("foundmeals er stadig good \n");
     //Output the data here
-
+    
+    free(meals);
+    free(ingredients);
+    free(mealResults);
+    free(foundmeals);
     //løkke med alle meals, hvor ings bliver freeet
     for (int i = 0; i < mealSize; i++)
     {
       free(meals[i].ings);
     }
-    
-    free(meals);
-    free(ingredients);
-    free(mealResults);
 
     //Denne her skal ind i searchMeals når den er done 
-    free(array);
+    // free(array);
 
     return 0;
 }
