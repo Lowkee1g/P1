@@ -133,3 +133,4 @@
 133, Sesamfrø, 0
 134, Mynteblade, 0
 135, Lagereddike, 0
+136, Peberfrugt, 0
