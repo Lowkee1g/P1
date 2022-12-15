@@ -23,17 +23,17 @@ void sortMeals(){
     // Meals to Ids
     for (int j = 0; j < foundmealsSize; j++)
     {
-        printf(" l'økkefoundmeals[j].name %d \n", foundmeals[j].id);
+        //printf(" l'økkefoundmeals[j].name %d \n", foundmeals[j].id);
         meal_Ids[j] = foundmeals[j].id;
     }
     
     qsort(meal_Ids, foundmealsSize, sizeof(int), comp);
     for (int i = 0; i < foundmealsSize; i++)
     {
-        printf("%d, ", meal_Ids[i]);
+        //printf("%d, ", meal_Ids[i]);
     }
-    printf("\n");
-    printf("meals_Ids[0] %d \n", meal_Ids[0]);
+    //printf("\n");
+    //printf("meals_Ids[0] %d \n", meal_Ids[0]);
 
     int mostInCommonId = -1;
     int mostDuplicates = 0;
@@ -58,7 +58,7 @@ void sortMeals(){
             mealResults[i] = mostInCommonId;
         }
         
-        printf("mealResults[i] = %d \n", mealResults[i]);
+        //printf("mealResults[i] = %d \n", mealResults[i]);
     }
     free(meal_Ids);
 }

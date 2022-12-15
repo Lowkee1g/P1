@@ -2,6 +2,7 @@
 #define SORT_MEALS_H
 #include "data.h"
 
+extern int size;
 extern int *mealResults;
 
 void sortMeals();

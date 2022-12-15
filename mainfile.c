@@ -7,7 +7,7 @@
 #include "printOutput.h"
 
 int main(void){
-    char *tmp[] = {"Pasta pesto", "Brunsviger", "3. ", "4. "};
+    //char *tmp[] = {"Pasta pesto", "Brunsviger", "3. ", "4. "};
 
     //Load meals and ingrediences here
     initializeStructs();
@@ -18,8 +18,8 @@ int main(void){
     //Search for meals based of the scan
     searchMeals();
     //Output the data here
-    printMeals(tmp, 4);
-
+    printMeals(mealResults, size);
+    printf("\nending program\n");
     
     free(meals);
     free(ingredients);
@@ -32,7 +32,7 @@ int main(void){
     }
 
     //Denne her skal ind i searchMeals når den er done 
-    // free(array);
+    //free(array);
 
     return 0;
 }
