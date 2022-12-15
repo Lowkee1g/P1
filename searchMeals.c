@@ -7,6 +7,7 @@
 #include "sortMeals.h"
 
 Meals *foundmeals;
+int foundmealsSize = 0;
 
 void searchMeals();
 int contains(int a, int *list, int size);
@@ -37,18 +38,18 @@ void searchMeals(){
         printf("\n");
     }
 
-    int counter = 0; 
     for (int i = 0; i < inputSize ; i++){ // Iterate through list of input ingredients
         for (int j = 0; j < mealSize; j++) { // Iterate through all meals to find the meals with matching ingredients
             if (contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs)){
-                foundmeals[counter] = meals[j];
-                printf("%s, %d \n", foundmeals[counter].name, foundmeals[counter].id);
-                counter++;
+                foundmeals[foundmealsSize] = meals[j];
+                printf("%s, %d \n", foundmeals[foundmealsSize].name, foundmeals[foundmealsSize].id);
+                foundmealsSize++;
             }
         }
     }
-    printf("foundmeals[0].name = %s \n", foundmeals[0].name);
-    // sortMeals(foundmeals);
+    foundmeals[foundmealsSize].id = -1;
+    printf("foundmealssize: %d\n", foundmealsSize);
+    sortMeals();
     
     free(ingids);
     free(array);
