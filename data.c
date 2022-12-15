@@ -4,20 +4,34 @@
 #include <stdlib.h>
 #include <math.h>
 
+//::::define:::://
+
 #define MAX_LINE_LENGTH 100
 #define MEALS_INPUT_LENGTH 4
 #define INGREDIENTS_INPUT_LENGTH 3
 
+
+//::::structs:::://
+
 Meals *meals;
 Ingredients *ingredients;
+
+
+//::::prototypes:::://
 
 void initializeStructs();
 void initializeMeals(FILE *mealsFile);
 void initializeIngredients(FILE *ingredientsFile);
 int getNumberOfLines(FILE *file);
 
+
+//::::global varibles:::://
+
 int mealSize;
 int ingredientsSize;
+
+
+//::::Functions:::://
 
 void initializeStructs()
 {
@@ -35,6 +49,7 @@ void initializeStructs()
     initializeMeals(mealsFile);
     initializeIngredients(ingredientsFile);
 }
+
 
 void initializeMeals(FILE *mealsFile)
 {
