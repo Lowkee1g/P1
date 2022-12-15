@@ -17,25 +17,22 @@ int main(void){
 
     //Search for meals based of the scan
     searchMeals();
-    printf("no crash\n");
-
     //Output the data here
     printMeals(tmp, 4);
 
-
+    
+    free(meals);
+    free(ingredients);
+    free(mealResults);
+    free(foundmeals);
     //løkke med alle meals, hvor ings bliver freeet
     for (int i = 0; i < mealSize; i++)
     {
       free(meals[i].ings);
     }
-    
-    free(meals);
-    free(ingredients);
-    free(mealResults);
 
     //Denne her skal ind i searchMeals når den er done 
-    free(array);
-    printf("no crash\n");
+    // free(array);
 
     return 0;
 }
