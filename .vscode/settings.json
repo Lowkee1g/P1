@@ -8,6 +8,7 @@
         "sstream": "c",
         "string": "c",
         "iosfwd": "c",
-        "scaninput.h": "c"
+        "scaninput.h": "c",
+        "printoutput.h": "c"
     }
 }

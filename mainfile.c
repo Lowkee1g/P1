@@ -4,8 +4,10 @@
 #include "searchMeals.h"
 #include "scaninput.h"
 #include "sortMeals.h" 
+#include "printOutput.h"
 
 int main(void){
+    char *tmp[] = {"Pasta pesto", "Brunsviger", "3. ", "4. "};
 
     //Load meals and ingrediences here
     initializeStructs();
@@ -15,8 +17,11 @@ int main(void){
 
     //Search for meals based of the scan
     searchMeals();
+    printf("no crash\n");
 
     //Output the data here
+    printMeals(tmp, 4);
+
 
     //løkke med alle meals, hvor ings bliver freeet
     for (int i = 0; i < mealSize; i++)
@@ -30,6 +35,7 @@ int main(void){
 
     //Denne her skal ind i searchMeals når den er done 
     free(array);
+    printf("no crash\n");
 
     return 0;
 }
