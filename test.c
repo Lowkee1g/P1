@@ -19,12 +19,6 @@ void testSpaghettiBolognese(void) {
     assert(strcmp(name, expected) == 0);
 }
 
-void testGraeskarsuppe(void) {
-    char *name = getStruct(40);
-    char *expected = "Græskarsuppe";
-    assert(strcmp(name, expected) == 0);
-}
-
 void testWrongMuffins(void) {
     char *name = getStruct(17);
     char *expected = "Muffiiiins";
@@ -38,8 +32,8 @@ void testScrambledEggs(void) {
 }
 
 void testRibbenstegIngredients(void) {
-    int *ings = getIngs(0);
-    int expected[10] = {2,4,5,6,7,8,9,10,11,12};
+    int *ings = getIngs(19);
+    int expected[3] = {78,11,19};
     for (int i = 0; i < sizeof(expected)/sizeof(expected[0]); i++) {
         assert(ings[i] == expected[i]);
     }

@@ -9,6 +9,6 @@
         "string": "c",
         "iosfwd": "c",
         "scaninput.h": "c",
-        "typeinfo": "c"
+        "printoutput.h": "c"
     }
 }

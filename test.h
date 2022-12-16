@@ -5,7 +5,6 @@
 char* getStruct(int index);
 int* getIngs(int index);
 void testSpaghettiBolognese(void);
-void testGraeskarsuppe(void);
 void testScrambledEggs(void);
 void testWrongMuffins(void);
 void testRibbenstegIngredients(void);

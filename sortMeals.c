@@ -1,74 +1,59 @@
-// Tjek id inputtede ingredients og match med meals ingredients
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "searchMeals.h"
 #include "data.h"
 #include "scaninput.h"
+#include "sortMeals.h"
 
-
-void sortMeals(Meals **found);
-void mealsToIds(Meals **found);
+void sortMeals();
 int comp(const void * a, const void * b);
 
-int *mealIds; // Vi skal returnere 10 meals
 int *mealResults;
-int counter;
-int size = 3;
+int counter = 0;
 
-void sortMeals(Meals **found){
-    mealIds = (int *) malloc(1 * sizeof(int)); 
-    mealResults = (int *) malloc(3 * sizeof(int));
-    if (mealResults == NULL || mealResults == NULL){
+void sortMeals(){
+    int meal_Ids[foundmealsSize];
+    mealResults = (int *) malloc(SIZE * sizeof(int *));
+    if (mealResults == NULL){
         exit(EXIT_FAILURE);
     }
-    for (int k = 0; k < size; k++){
+    for (int k = 0; k < SIZE; k++){
         mealResults[k] = 0;
     }
 
-    mealsToIds(found);
+    // Convert the found meals to ids
+    for (int j = 0; j < foundmealsSize; j++){
+        meal_Ids[j] = foundmeals[j].id;
+    }
     
-    qsort(mealIds, counter, sizeof(int), comp);
+    qsort(meal_Ids, foundmealsSize, sizeof(int), comp);
+
     int mostInCommonId = -1;
     int mostDuplicates = 0;
     int tempCounter = 1;
-    for (int i = 0; i < size; i++){
-        for (int j = 1; j < counter; j++){
-            if (mealIds[j] == mealIds[j - 1]){
-                if (!contains(mealIds[j], mealResults, size)){
+    for (int i = 0; i < SIZE; i++){ 
+        for (int j = 1; j < foundmealsSize; j++){
+            if (meal_Ids[j] == meal_Ids[j - 1]){ // Check for duplicates
+                if (!contains(meal_Ids[j], mealResults, SIZE)){ // If this id is not already counted
                     tempCounter++;
-                    if (tempCounter > mostDuplicates){
+                    if (tempCounter >= mostDuplicates){ // Find the most duplicates and save that id
                         mostDuplicates = tempCounter;
-                        mostInCommonId = mealIds[j];
+                        mostInCommonId = meal_Ids[j];
                     }
                 }
             } else {
                 tempCounter = 1;
             }
         }
-        mealResults[i] = mostInCommonId;
-    }
-    free(mealIds);
-}
-
-void mealsToIds(Meals **found){
-    // Gather all ids of meals in a list of ints. 
-    counter = 0;
-    int j = 0;
-    
-    for (int i = 0; i < inputSize; i++){
-        printf("inputsize: %d\n", inputSize);
-        j = 0;
-        while (found[i][j].id != -1){
-            mealIds[counter] = found[i][j].id;
-            printf("found[%d][%d].id = %d \n", i, j, found[i][j].id);
-            counter++;
-            mealIds = (int *) realloc(mealIds, (counter) * sizeof(int *));
-            j++;
+        if (inputSize == 1){
+            mealResults[i] = meal_Ids[i];
+        } else {
+            mealResults[i] = mostInCommonId;
         }
     }
 }
 
+// Sort function for qsort
 int comp(const void * a, const void * b){
     return (*(int *)b - *(int *)a);
 }
