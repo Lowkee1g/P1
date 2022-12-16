@@ -4,7 +4,7 @@
 #include "GlobalFunctions.h"
 
 
-char getStringInput() {
+const char * getStringInput() {
     char *input;
     fgets(input, 100, stdin);
 

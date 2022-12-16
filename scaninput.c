@@ -33,8 +33,8 @@ void scanData() {
         }
 
         printf("%c", 175);
-        array[inputSize] = getStringInput();
-        //fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
+        //strcpy(array[inputSize], getStringInput());
+        fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
         //Fjern newline
         array[inputSize][strlen(array[inputSize]) - 1] = '\0';
 
