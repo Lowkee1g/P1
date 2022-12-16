@@ -9,4 +9,10 @@ void testScrambledEggs(void);
 void testWrongMuffins(void);
 void testRibbenstegIngredients(void);
 
+// serachMeals tests
+void testFoundmeals(void);
+void testFoundmealsSize(void);
+
+// sortMeals tests
+
 #endif // SORT_MEALS_H

@@ -7,19 +7,23 @@
 #include "printOutput.h"
 #include "test.h" 
 
-void runAllTests(void) {
+void runStructTests(void) {
   testSpaghettiBolognese();
   testScrambledEggs();
   testWrongMuffins();
   testRibbenstegIngredients();
 }
 
-int main(void){
-    //char *tmp[] = {"Pasta pesto", "Brunsviger", "3. ", "4. "};
+void runSearchMealsTests(void) {
+  testFoundmeals();
+  testFoundmealsSize();
+}
 
+int main(void){
+    
     //Load meals and ingrediences here
     initializeStructs();
-    runAllTests();
+    runStructTests();
 
     //Scan for data here
     scanData();
@@ -33,8 +37,11 @@ int main(void){
     //Output the data here
     printMeals(mealResults, SIZE);
     printf("\nending program\n");
+
+    runSearchMealsTests(); // Test searchMeals
+    printf("searchMeals tests passed\n");
     
-    free(meals);
+    
     free(ingredients);
     free(mealResults);
     free(foundmeals);
@@ -44,9 +51,7 @@ int main(void){
     {
       free(meals[i].ings);
     }
-
-    //Denne her skal ind i searchMeals når den er done 
-    //free(array);
+    free(meals);
 
     return 0;
 }

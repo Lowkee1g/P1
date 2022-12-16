@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <string.h>
 #include "data.h"
+#include "scaninput.h"
+#include "searchMeals.h"
 
 char* getStruct(int index)
 {
@@ -38,3 +40,20 @@ void testRibbenstegIngredients(void) {
         assert(ings[i] == expected[i]);
     }
 }
+
+
+/////////////////////// Tests for searchMeals
+void testFoundmeals(void){
+    array[0] = "vand";
+    char *expected = "Halloween pirogger";
+    printf("s% er det samme som %s \n", foundmeals[0].name, expected);
+    assert(strcmp(foundmeals[0].name, expected) == 0);
+}
+
+void testFoundmealsSize(void){
+    array[0] = "vand\0";
+    int expected = 15;
+    assert(foundmealsSize == expected);
+}
+
+/////////////////////// Tests for sortMeals
