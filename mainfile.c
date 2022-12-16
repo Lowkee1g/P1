@@ -17,6 +17,10 @@ int main(void){
 
     //Search for meals based of the scan
     searchMeals();
+
+    //Sort meals 
+    sortMeals();
+
     //Output the data here
     printMeals(mealResults, SIZE);
     printf("\nending program\n");
@@ -25,6 +29,7 @@ int main(void){
     free(ingredients);
     free(mealResults);
     free(foundmeals);
+    free(array);
     //løkke med alle meals, hvor ings bliver freeet
     for (int i = 0; i < mealSize; i++)
     {
