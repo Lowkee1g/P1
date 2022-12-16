@@ -4,16 +4,34 @@
 #include <stdlib.h>
 #include <math.h>
 
+//::::define:::://
+
+#define MAX_LINE_LENGTH 100
+#define MEALS_INPUT_LENGTH 4
+#define INGREDIENTS_INPUT_LENGTH 3
+
+
+//::::structs:::://
+
 Meals *meals;
 Ingredients *ingredients;
+
+
+//::::prototypes:::://
 
 void initializeStructs();
 void initializeMeals(FILE *mealsFile);
 void initializeIngredients(FILE *ingredientsFile);
 int getNumberOfLines(FILE *file);
 
+
+//::::global varibles:::://
+
 int mealSize;
 int ingredientsSize;
+
+
+//::::Functions:::://
 
 void initializeStructs()
 {
@@ -31,6 +49,7 @@ void initializeStructs()
     initializeMeals(mealsFile);
     initializeIngredients(ingredientsFile);
 }
+
 
 void initializeMeals(FILE *mealsFile)
 {
@@ -57,7 +76,7 @@ void initializeMeals(FILE *mealsFile)
         Meals meal;
 
         // Set a counter used to control ingredients mallock size and tempString to make ingredients array
-        char tempString[100];
+        char tempString[MAX_LINE_LENGTH];
         int counter = 0;
 
         // Intialize ingredients mallock and set size to 1 and set the sizeOfIngs to 0
@@ -72,7 +91,7 @@ void initializeMeals(FILE *mealsFile)
         // Read each line in meals.txt
         success = fscanf(openMealsFileAgain, "%d, %[^,], %lf, %s", &meal.id, &*meal.name, &meal.price, &*tempString);
         // If it fails break the loop
-        if (success != 4)
+        if (success != MEALS_INPUT_LENGTH)
         {
             break;
         }
@@ -131,7 +150,7 @@ void initializeIngredients(FILE *ingredientsFile) {
         // Read each line in ingredients.txt
         success = fscanf(openIngredientsFileAgain, "%d, %[^,], %lf", &ingredient.id, &*ingredient.name, &ingredient.price);
         // If it fails break the loop
-        if (success != 3)
+        if (success != INGREDIENTS_INPUT_LENGTH)
         {
             break;
         }

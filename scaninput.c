@@ -17,7 +17,10 @@ void scanData() {
     
 
     //Går gennem inputs fra brugen indtil at der bliver skrevet "next"
-    printf("\nInsert ingredients (Type next to end): ");
+    printf("\n|-----------------------------------|");
+    printf("\n|Insert ingredients                 |");
+    printf("\n|type next when you want to continue|");
+    printf("\n|-----------------------------------|\n");
 
     while (1) {
         array[inputSize] = malloc(50 * sizeof(char)); //Allocerer plads til 50 chars i pointeren
@@ -28,20 +31,17 @@ void scanData() {
             exit(EXIT_FAILURE);
         }
 
-
+        printf("%c", 175);
         fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
-
         //Fjern newline
         array[inputSize][strlen(array[inputSize]) - 1] = '\0';
 
         //Hvis der bliver indtastet "next", så stopper den
         if (strcmp(array[inputSize],"next") == 0) {
-            printf("Break \n");
+            //printf("Break \n");
             array[inputSize] = (char *) ' '; 
             break;
         }
-
-        printf("\nnext ingredient: ");
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
         inputSize++;
