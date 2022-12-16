@@ -27,14 +27,13 @@ void searchMeals(){
     for (int i = 0; i < inputSize; i++){ // For each input ingredient
         ingids[i] = - 1;
         for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
-            array[i][0] = tolower(array[i][0]);
+            array[i][0] = tolower(array[i][0]); // Set first character to lowercase in both input and ingredient
             ingredients[j].name[0] = tolower(ingredients[j].name[0]);
             if(!strcmp(array[i], ingredients[j].name)){ // Find the given ingredients id.
                 ingids[i] = ingredients[j].id; 
                 break;
             }             
         }
-        //printf("\n");
     }
 
     for (int i = 0; i < inputSize ; i++){ // Iterate through list of input ingredients
