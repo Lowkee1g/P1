@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "GlobalFunctions.h"
 //#include "scaninput.h"
 //https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
@@ -32,6 +33,7 @@ void scanData() {
         }
 
         printf("%c", 175);
+        //strcpy(array[inputSize], getStringInput());
         fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
         //Fjern newline
         array[inputSize][strlen(array[inputSize]) - 1] = '\0';
