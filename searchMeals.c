@@ -45,10 +45,8 @@ void searchMeals(){
         }
     }
     foundmeals[foundmealsSize].id = -1; // Set last meals id to -1 to indicate that it is the last meal
-    sortMeals();
     
     free(ingids);
-    free(array);
 }
 
 // Funktion returnerer 1, hvis listen list indeholder a

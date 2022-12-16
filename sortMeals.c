@@ -12,45 +12,52 @@ int *mealResults;
 int counter = 0;
 
 void sortMeals(){
-    int meal_Ids[foundmealsSize];
+    int mealIds[foundmealsSize];
     mealResults = (int *) malloc(SIZE * sizeof(int *));
     if (mealResults == NULL){
         exit(EXIT_FAILURE);
     }
+
     for (int k = 0; k < SIZE; k++){
         mealResults[k] = 0;
     }
 
     // Convert the found meals to ids
     for (int j = 0; j < foundmealsSize; j++){
-        meal_Ids[j] = foundmeals[j].id;
+        mealIds[j] = foundmeals[j].id;
     }
     
-    qsort(meal_Ids, foundmealsSize, sizeof(int), comp);
+    qsort(mealIds, foundmealsSize, sizeof(int), comp);
 
     int mostInCommonId = -1;
     int mostDuplicates = 0;
     int tempCounter = 1;
     for (int i = 0; i < SIZE; i++){ 
         for (int j = 1; j < foundmealsSize; j++){
-            if (meal_Ids[j] == meal_Ids[j - 1]){ // Check for duplicates
-                if (!contains(meal_Ids[j], mealResults, SIZE)){ // If this id is not already counted
+            if (mealIds[j] == mealIds[j - 1]){ // Check for duplicates
+                if (!contains(mealIds[j], mealResults, SIZE)){ // If this id is not already counted
                     tempCounter++;
                     if (tempCounter >= mostDuplicates){ // Find the most duplicates and save that id
                         mostDuplicates = tempCounter;
-                        mostInCommonId = meal_Ids[j];
+                        mostInCommonId = mealIds[j];
                     }
                 }
             } else {
                 tempCounter = 1;
             }
         }
-        if (inputSize == 1){
-            mealResults[i] = meal_Ids[i];
-        } else {
+        if (inputSize == 1){ // One input
+            mealResults[i] = mealIds[i];
+        } else if (inputSize == 0){ // No inputs
+            mealResults[i] = -1;
+        } else if (!contains(mostInCommonId, mealResults, SIZE)){ // If the meal is not already in mealResults
             mealResults[i] = mostInCommonId;
+        } else {
+            mealResults[i] = mealIds[i];
         }
     }
+    
+    free(mealIds);
 }
 
 // Sort function for qsort
