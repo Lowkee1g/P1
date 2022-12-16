@@ -17,6 +17,7 @@ void sortMeals(){
     if (mealResults == NULL){
         exit(EXIT_FAILURE);
     }
+
     for (int k = 0; k < SIZE; k++){
         mealResults[k] = 0;
     }
@@ -51,6 +52,7 @@ void sortMeals(){
             mealResults[i] = mostInCommonId;
         }
     }
+    
     free(mealIds);
 }
 
