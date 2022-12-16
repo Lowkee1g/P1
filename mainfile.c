@@ -18,7 +18,7 @@ int main(void){
     //Search for meals based of the scan
     searchMeals();
     //Output the data here
-    printMeals(mealResults, size);
+    printMeals(mealResults, SIZE);
     printf("\nending program\n");
     
     free(meals);
