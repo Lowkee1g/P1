@@ -3,7 +3,7 @@
 #include "searchMeals.h"
 #include "data.h"
 #include "scaninput.h"
-#define SIZE 3
+#include "sortMeals.h"
 
 void sortMeals();
 int comp(const void * a, const void * b);
