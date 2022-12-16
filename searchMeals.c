@@ -20,7 +20,6 @@ void searchMeals(){
 
     int *ingids = (int *) malloc(inputSize * sizeof(int));
     if (ingids == NULL){
-        //printf("searchMeals exit failure linje 21 \n");
         exit(EXIT_FAILURE);
     }
     
@@ -42,13 +41,11 @@ void searchMeals(){
         for (int j = 0; j < mealSize; j++) { // Iterate through all meals to find the meals with matching ingredients
             if (contains(ingids[i], meals[j].ings, meals[j].sizeOfIngs)){
                 foundmeals[foundmealsSize] = meals[j];
-                //printf("%s, %d \n", foundmeals[foundmealsSize].name, foundmeals[foundmealsSize].id);
                 foundmealsSize++;
             }
         }
     }
-    foundmeals[foundmealsSize].id = -1;
-    //printf("foundmealssize: %d\n", foundmealsSize);
+    foundmeals[foundmealsSize].id = -1; // Set last meals id to -1 to indicate that it is the last meal
     sortMeals();
     
     free(ingids);
