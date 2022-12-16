@@ -3,7 +3,6 @@
 #include "data.h"
 #define SIZE 3
 
-extern int size;
 extern int *mealResults;
 
 void sortMeals();
