@@ -46,10 +46,14 @@ void sortMeals(){
                 tempCounter = 1;
             }
         }
-        if (inputSize == 1){
+        if (inputSize == 1){ // One input
             mealResults[i] = mealIds[i];
-        } else {
+        } else if (inputSize == 0){ // No inputs
+            mealResults[i] = -1;
+        } else if (!contains(mostInCommonId, mealResults, SIZE)){ // If the meal is not already in mealResults
             mealResults[i] = mostInCommonId;
+        } else {
+            mealResults[i] = mealIds[i];
         }
     }
     
