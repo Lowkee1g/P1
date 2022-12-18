@@ -44,15 +44,24 @@ void testRibbenstegIngredients(void) {
 
 /////////////////////// Tests for searchMeals
 void testFoundmeals(void){
-    array[0] = "vand";
-    char *expected = "Halloween pirogger";
-    printf("s% er det samme som %s \n", foundmeals[0].name, expected);
-    assert(strcmp(foundmeals[0].name, expected) == 0);
+    // array[0] = "vand";
+    // char *expected = "Halloween pirogger";
+    // assert(strcmp(foundmeals[0].name, expected) == 0);
 }
 
 void testFoundmealsSize(void){
-    array[0] = "vand\0";
+    // if (strcmp(array[0], "vand") == 0){
+    //     int expected = 15;
+    //     assert(foundmealsSize == expected);
+    // }
+    printf("Inden kaldet \n");
+    array[0] = "vand";
+    inputSize = 1;
+    foundmealsSize = 0;
+    // Vil gerne kalde seachMeals her, men den crasher.
+    // searchMeals();
     int expected = 15;
+    printf("\nfoundmealsSize %d, expected %d \n", foundmealsSize, expected);
     assert(foundmealsSize == expected);
 }
 
