@@ -12,6 +12,7 @@ void printMeals(int *mealid, int LENGTH_OF_ARRAY) {
     printf("|-----------------------------------|\n");
 
     while (1) {
+        // find the number of meals to show
         if (remaining > 3) {
             j = 3;
         } else {
@@ -20,6 +21,8 @@ void printMeals(int *mealid, int LENGTH_OF_ARRAY) {
         printf("|    Found %d meals - Showing %d/%d    |\n", remaining, multi+j, remaining);
         printf("|%-35.35s|\n", "   type meal name to see details");
         printf("|-----------------------------------|\n");
+
+        // print the meals found in the array 
         for (int i = 0; i < j; i++) {
             //find meal name from id
             for (int k = 0; k < mealSize; k++) {
@@ -33,6 +36,8 @@ void printMeals(int *mealid, int LENGTH_OF_ARRAY) {
         }
 
         printf("|-----------------------------------|\n%c", 175);
+
+        // Get input from user.
         char input[50];
         gets(input);
 
@@ -56,10 +61,12 @@ void printMeals(int *mealid, int LENGTH_OF_ARRAY) {
             i++;
         }
 
+        // check if there are more meals to show if not break the loop
         if (remaining == 0) {
             break;
         }
 
+        // check if the user wants to see more meals
         if (strcmp("more", input) == 0) {
             multi += 3;
         } else {
