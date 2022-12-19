@@ -2,8 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "GlobalFunctions.h"
-//#include "scaninput.h"
-//https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
 char **inputIngredienceArray;
 int inputSize = 0;
