@@ -48,7 +48,7 @@ void printMeals(int *mealid, int LENGTH_OF_ARRAY) {
                 printf("|Showing ingrediences needed to make|\n|%-35.35s|\n", meals[i].name);
                 printf("|-----------------------------------|\n");
                 for (int j = 0; j < meals[i].sizeOfIngs; j++) {
-                    printf("|%c %-33.33s|\n",175, ingredients[meals[i].ings[j]].name);
+                    printf("|%c %-33.33s|\n",175, ingredients[meals[i].ings[j]-1].name);
                 }
                 printf("|-----------------------------------|\n");
                 break;

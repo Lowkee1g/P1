@@ -5,48 +5,48 @@
 //#include "scaninput.h"
 //https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
-char **array;
+char **inputIngredienceArray;
 int inputSize = 0;
 
 void scanData() {
-    //Opretter 2D array af strings
-    array = malloc(1 * sizeof(char *)); //Allocerer plads til 1 string
-    if (array == NULL) //Hvis der ikke er plads til stringen, så stop
+    //Make a 2D array of strings
+    inputIngredienceArray = malloc(1 * sizeof(char *)); //allocate space for 1 string
+    if (inputIngredienceArray == NULL) //Check if malloc failed
     {
         exit(EXIT_FAILURE);
     }
     
 
-    //Går gennem inputs fra brugen indtil at der bliver skrevet "next"
+    //go through the array and ask for input
     printf("\n|-----------------------------------|");
     printf("\n|Insert ingredients                 |");
     printf("\n|type next when you want to continue|");
     printf("\n|-----------------------------------|\n");
 
     while (1) {
-        array[inputSize] = malloc(50 * sizeof(char)); //Allocerer plads til 50 chars i pointeren
+        inputIngredienceArray[inputSize] = malloc(50 * sizeof(char)); //allocate space for 50 chars
 
-        //Hvis der ikke er plads til 50 chars, så stop
-        if (array[inputSize] == NULL){ 
+        //if there is no space left, exit
+        if (inputIngredienceArray[inputSize] == NULL){ 
             printf("Exit here - %d", inputSize);
             exit(EXIT_FAILURE);
         }
 
         printf("%c", 175);
-        //strcpy(array[inputSize], getStringInput());
-        fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
-        //Fjern newline
-        array[inputSize][strlen(array[inputSize]) - 1] = '\0';
 
-        //Hvis der bliver indtastet "next", så stopper den
-        if (strcmp(array[inputSize],"next") == 0) {
-            //printf("Break \n");
-            array[inputSize] = (char *) ' '; 
+        fgets(inputIngredienceArray[inputSize], 50, stdin); // fgets takes a given size, so it will not overflow the buffer
+        //remove newline
+        inputIngredienceArray[inputSize][strlen(inputIngredienceArray[inputSize]) - 1] = '\0';
+
+        //if the input is next, break the loop
+        if (strcmp(inputIngredienceArray[inputSize],"next") == 0) {
+
+            inputIngredienceArray[inputSize] = (char *) ' '; 
             break;
         }
 
-        //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
+        //if the input is not next, add 1 to the size of the array and realloc the array
         inputSize++;
-        array = realloc(array, (1 + inputSize) * sizeof(char *)); //Reallocerer plads til 1 string
+        inputIngredienceArray = realloc(inputIngredienceArray, (1 + inputSize) * sizeof(char *)); //Reallocerer plads til 1 string
     }
 }
