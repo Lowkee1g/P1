@@ -18,7 +18,6 @@ void printMeals(int *mealid, int LENGTH_OF_ARRAY) {
             j = remaining;
         }
         printf("|    Found %d meals - Showing %d/%d    |\n", remaining, multi+j, remaining);
-        printf("|%-35.35s|\n", "   type 'more' to see more meals");
         printf("|%-35.35s|\n", "   type meal name to see details");
         printf("|-----------------------------------|\n");
         for (int i = 0; i < j; i++) {

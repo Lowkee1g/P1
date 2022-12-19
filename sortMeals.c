@@ -57,7 +57,6 @@ void sortMeals(){
         }
     }
     
-    free(mealIds);
 }
 
 // Sort function for qsort
