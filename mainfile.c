@@ -36,7 +36,7 @@ int main(void){
     free(mealResults);
     free(foundmeals);
     free(meals);
-    free(array);
+    free(inputIngredienceArray);
 
     return 0;
 }

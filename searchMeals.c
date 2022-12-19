@@ -27,10 +27,10 @@ void searchMeals(){
     for (int i = 0; i < inputSize; i++){ // For each input ingredient
         ingids[i] = - 1;
         for (int j = 0; j < ingredientsSize; j++){ // For each existing ingredient struct
-        printf("array[0] = %s \n", array[0]);
-            array[i][0] = tolower(array[i][0]); // Set first character to lowercase in both input and ingredient
+        printf("array[0] = %s \n", inputIngredienceArray[0]);
+            inputIngredienceArray[i][0] = tolower(inputIngredienceArray[i][0]); // Set first character to lowercase in both input and ingredient
             ingredients[j].name[0] = tolower(ingredients[j].name[0]);
-            if(!strcmp(array[i], ingredients[j].name)){ // Find the given ingredients id.
+            if(!strcmp(inputIngredienceArray[i], ingredients[j].name)){ // Find the given ingredients id.
                 ingids[i] = ingredients[j].id; 
                 break;
             }             
