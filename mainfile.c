@@ -14,12 +14,6 @@ void runStructTests(void) {
   testRibbenstegIngredients();
 }
 
-void runSearchMealsTests(void) {
-  prepSerachMealsTests();
-  testFoundmeals();
-  testFoundmealsSize();
-}
-
 int main(void){    
     //Load meals and ingrediences here
     initializeStructs();
@@ -37,21 +31,12 @@ int main(void){
     //Output the data here
     printMeals(mealResults, SIZE);
     printf("\nending program\n");    
-
-    array[0] = NULL;
-    free(array);
-    array = NULL;
-    
-    printf("Run searchMeals tests \n");
-    runSearchMealsTests(); // Test searchMeals
-    printf("searchMeals tests passed\n");
-
-    endTests();
     
     free(ingredients);
     free(mealResults);
     free(foundmeals);
     free(meals);
+    free(array);
 
     return 0;
 }
