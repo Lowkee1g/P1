@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+#include <stdlib.h>
 #include "data.h"
 #include "scaninput.h"
 #include "searchMeals.h"
@@ -17,7 +18,7 @@ int* getIngs(int index)
 
 void testSpaghettiBolognese(void) {
     char *name = getStruct(0);
-    char *expected = "Spaghetti bolognese";
+    char *expected = "Spaghetti Bolognese";
     assert(strcmp(name, expected) == 0);
 }
 
@@ -43,26 +44,35 @@ void testRibbenstegIngredients(void) {
 
 
 /////////////////////// Tests for searchMeals
-void testFoundmeals(void){
-    // array[0] = "vand";
-    // char *expected = "Halloween pirogger";
-    // assert(strcmp(foundmeals[0].name, expected) == 0);
-}
-
-void testFoundmealsSize(void){
-    // if (strcmp(array[0], "vand") == 0){
-    //     int expected = 15;
-    //     assert(foundmealsSize == expected);
-    // }
-    printf("Inden kaldet \n");
-    array[0] = "vand";
+void prepSerachMealsTests(void){
+    array = malloc(1 * sizeof(char *)); //Allocerer plads til 1 string
+    if (array == NULL) //Hvis der ikke er plads til stringen, så stop
+    {
+        exit(EXIT_FAILURE);
+    }
+    strcpy(array[0],"water");
     inputSize = 1;
     foundmealsSize = 0;
-    // Vil gerne kalde seachMeals her, men den crasher.
-    // searchMeals();
+    searchMeals();
+}
+
+// Tests if the first output is Halloween Pierogies when 'vand' is only input
+void testFoundmeals(void){
+    char expected[23];
+    strcpy(expected, "Halloween Pierogies\0");
+    assert(strcmp(foundmeals[0].name, expected) == 0);
+}
+
+// Tests if there has been found 14 meals (+ 1 to indicate that there are no more meals) if the only input is 'vand'
+void testFoundmealsSize(void){
     int expected = 15;
-    printf("\nfoundmealsSize %d, expected %d \n", foundmealsSize, expected);
     assert(foundmealsSize == expected);
 }
 
 /////////////////////// Tests for sortMeals
+
+
+/////////////////////// End tests
+void endTests(void){
+    free(array);
+}

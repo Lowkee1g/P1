@@ -15,15 +15,20 @@ void runStructTests(void) {
 }
 
 void runSearchMealsTests(void) {
+  prepSerachMealsTests();
   testFoundmeals();
   testFoundmealsSize();
 }
 
-int main(void){
-    
+int main(void){    
     //Load meals and ingrediences here
     initializeStructs();
     runStructTests();
+    printf("Run searchMeals tests \n");
+    runSearchMealsTests(); // Test searchMeals
+    printf("searchMeals tests passed\n");
+
+    endTests();
 
     //Scan for data here
     scanData();
@@ -36,11 +41,7 @@ int main(void){
 
     //Output the data here
     printMeals(mealResults, SIZE);
-    printf("\nending program\n");
-
-    runSearchMealsTests(); // Test searchMeals
-    printf("searchMeals tests passed\n");
-    
+    printf("\nending program\n");    
     
     free(ingredients);
     free(mealResults);

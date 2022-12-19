@@ -1,136 +1,136 @@
-1, Smør, 0
+1, Butter, 0
 2, Spaghetti, 0
 3, Pasta, 0
 4, Bacon, 0
-5, Løg, 0
-6, Hvidløg, 0
-7, Timian, 0
-8, Oksekød, 0
-9, Rødvin, 0
-10, Tomater, 0
+5, Onions, 0
+6, Garlic, 0
+7, Thyme, 0
+8, Beef, 0
+9, Red wine, 0
+10, Tomatoes, 0
 11, Salt, 0
-12, Peber, 0
+12, Pepper, 0
 13, Pesto, 0
-14, Kylling, 0
-15, Grøntsager, 0
-16, Tomatpuré, 0
-17, Tacokrydderi, 0
+14, Chicken, 0
+15, Vegetables, 0
+16, Tomato puree, 0
+17, Taco seasoning, 0
 18, Mozzarella, 0
-19, Vand, 0
-20, Gær, 0
-21, Mælk, 0
-22, Honning, 0
-23, Hvedemel, 0
-24, Cremefraiche, 0
+19, Water, 0
+20, Yeast, 0
+21, Milk, 0
+22, Honey, 0
+23, Wheat flour, 0
+24, Sour cream, 0
 25, Paprika, 0
-26, Tacosauce, 0
-27, Havregryn, 0
-28, Floremelis, 0
-29, Kakaopulver, 0
-30, Kokosmel, 0
-31, Æg, 0
-32, Sukker, 0
-33, Brun farin, 0
-34, Gulerødder, 0
-35, Chokolade, 0
-36, Valnøddekerner, 0
-37, Tun, 0
-38, Citronsaft, 0
-39, Brøndkarse, 0
-40, Flutes, 0
-41, Butterdej, 0
-42, Champigoner, 0
-43, Skinke, 0
-44, Flødeost, 0
-45, Taffelsennep, 0
-46, Purløg, 0
-47, Tipo, 0
-48, Olivenolie, 0
-49, Rødvinsedike, 0
+26, Taco sauce, 0
+27, Oats, 0
+28, Confectioner's sugar, 0
+29, Cocoa powder, 0
+30, Coconut flour, 0
+31, Egg, 0
+32, Sugar, 0
+33, Brown sugar, 0
+34, Carrots, 0
+35, Chocolate, 0
+36, Walnut kernels, 0
+37, Tuna, 0
+38, Lemon juice, 0
+39, Watercress, 0
+40, Bread, 0
+41, Puff pastry, 0
+42, Mushrooms, 0
+43, Ham, 0
+44, Cream cheese, 0
+45, Mustard, 0
+46, Parsley, 0
+47, Type, 0
+48, Olive oil, 0
+49, Red wine vinegar, 0
 50, Broccoli, 0
-51, Rødløg, 0
-52, solsikkekerner, 0
-53, Rosiner, 0
-54, Okseculotte, 0
-55, Skumfiduser, 0
-56, Rapsolie, 0
-57, Frugtfarve, 0
-58, Kartofler, 0
-59, Æggeblommer, 0
-60, Persille, 0
-61, Æggehvider, 0
-62, Muskatnød, 0
-63, Tomatketchup, 0
-64, HP, 0
-65, Piskefløde, 0
-66, Hjertesalat, 0
-67, Rejer, 0
-68, Citron, 0
-69, Dild, 0
-70, Bananer, 0
-71, Frugtsmoothie, 0
-72, Kanel, 0
-73, Bagepulver, 0
-74, Karry, 0
-75, Æbler, 0
-76, Ris, 0
-77, Mangochutney, 0
-78, Ribbensteg, 0
-79, Flæskesteg, 0
-80, Skatlottelæg, 0
-81, Jordskokker, 0
-82, Grøntsagsboullon, 0
-83, Burgerboller, 0
-84, Grønkål, 0
+51, Red onions, 0
+52, Sunflower seeds, 0
+53, Raisins, 0
+54, Beef sirloin, 0
+55, Marshmallows, 0
+56, Canola oil, 0
+57, Food coloring, 0
+58, Potatoes, 0
+59, Egg yolks, 0
+60, Parsley, 0
+61, Egg whites, 0
+62, Nutmeg, 0
+63, Tomato ketchup, 0
+64, HP sauce, 0
+65, Whipping cream, 0
+66, Romaine lettuce, 0
+67, Shrimp, 0
+68, Lemon, 0
+69, Dill, 0
+70, Bananas, 0
+71, Fruit smoothie, 0
+72, Cinnamon, 0
+73, Baking powder, 0
+74, Curry, 0
+75, Apples, 0
+76, Rice, 0
+77, Mango chutney, 0
+78, Pork rib roast, 0
+79, Pork roast, 0
+80, Scotch eggs, 0
+81, Jerusalem artichokes, 0
+82, Vegetable bouillon, 0
+83, Hamburger buns, 0
+84, Kale, 0
 85, Mayonnaise, 0
-86, Rødkål, 0
-87, Salat, 0
-88, Spidskål, 0
-89, Ærter, 0
-90, Grisekoteletter, 0
-91, Madlavningsfløde, 0
-92, Pizzadej, 0
-93, Græskar, 0
-94, Appelsinskal, 0
-95, Græskarkerner, 0
-96, Kyllinglår, 0
-97, Dijonsennep, 0
-98, Cashewnødder, 0
-99, Kold vodka, 0
-100, Kold kaffelikør, 0
-101, Spinat, 0
-102, Citrongræs, 0
-103, Hytteost, 0
-104, Porrer, 0
-105, Svinemørbrad, 0
+86, Red cabbage, 0
+87, Salad, 0
+88, Pointed cabbage, 0
+89, Peas, 0
+90, Pork chops, 0
+91, Cooking cream, 0
+92, Pizza dough, 0
+93, Pumpkin, 0
+94, Orange peel, 0
+95, Pumpkin seeds, 0
+96, Chicken thighs, 0
+97, Dijon mustard, 0
+98, Cashew nuts, 0
+99, Cold vodka, 0
+100, Cold coffee liqueur, 0
+101, Spinach, 0
+102, Lemon grass, 0
+103, Cottage cheese, 0
+104, Leeks, 0
+105, Pork tenderloin, 0
 106, Squash, 0
-107, Rugbrød, 0
-108, Spidskommen, 0
-109, Kvark, 0
-110, Toastbrød, 0
-111, Yoghurt, 0
+107, Rye bread, 0
+108, Cumin, 0
+109, Quark, 0
+110, Toast bread, 0
+111, Yogurt, 0
 112, Oregano, 0
-113, Kanelstang, 0
-114, Laks, 0
-115, Maltøl, 0
-116, Safran, 0
-117, Kinakål, 0
-118, Radiser, 0
-119, Blomkål, 0
-120, Fiskesovs, 0
-121, Chillifalger, 0
-122, Ingefær, 0
-123, Kikærter, 0
-124, Olie, 0
-125, Mandler, 0
-126, Bearnaise essence, 0
-127, Estragonblade, 0
+113, Cinnamon stick, 0
+114, Salmon, 0
+115, Malt beer, 0
+116, Saffron, 0
+117, Chinese cabbage, 0
+118, Radishes, 0
+119, Cauliflower, 0
+120, Fish sauce, 0
+121, Chili flakes, 0
+122, Ginger, 0
+123, Chickpeas, 0
+124, Oil, 0
+125, Almonds, 0
+126, Bearnaise sauce, 0
+127, Tarragon leaves, 0
 128, Avocado, 0
-129, Edamamebønner, 0
-130, Forårsløg, 0
-131, Limefrugt, 0
-132, Chilipeber, 0
-133, Sesamfrø, 0
-134, Mynteblade, 0
-135, Lagereddike, 0
-136, Peberfrugt, 0
+129, Edamame beans, 0
+130, Spring onions, 0
+131, Lime, 0
+132, Chili pepper, 0
+133, Sesame seeds, 0
+134, Mint leaves, 0
+135, White vinegar, 0
+136, Bell pepper, 0
