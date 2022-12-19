@@ -24,11 +24,6 @@ int main(void){
     //Load meals and ingrediences here
     initializeStructs();
     runStructTests();
-    printf("Run searchMeals tests \n");
-    runSearchMealsTests(); // Test searchMeals
-    printf("searchMeals tests passed\n");
-
-    endTests();
 
     //Scan for data here
     scanData();
@@ -42,16 +37,20 @@ int main(void){
     //Output the data here
     printMeals(mealResults, SIZE);
     printf("\nending program\n");    
+
+    array[0] = NULL;
+    free(array);
+    array = NULL;
+    
+    printf("Run searchMeals tests \n");
+    runSearchMealsTests(); // Test searchMeals
+    printf("searchMeals tests passed\n");
+
+    endTests();
     
     free(ingredients);
     free(mealResults);
     free(foundmeals);
-    free(array);
-    //løkke med alle meals, hvor ings bliver freeet
-    for (int i = 0; i < mealSize; i++)
-    {
-      free(meals[i].ings);
-    }
     free(meals);
 
     return 0;

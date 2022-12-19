@@ -45,9 +45,12 @@ void testRibbenstegIngredients(void) {
 
 /////////////////////// Tests for searchMeals
 void prepSerachMealsTests(void){
-    array = malloc(1 * sizeof(char *)); //Allocerer plads til 1 string
-    if (array == NULL) //Hvis der ikke er plads til stringen, så stop
-    {
+    array = malloc(1 * sizeof(char **)); //Allocerer plads til 1 string
+    if (array == NULL) {
+        exit(EXIT_FAILURE);
+    }
+    array[0] = malloc(50 * sizeof(char *));
+    if (array[0] == NULL) {
         exit(EXIT_FAILURE);
     }
     strcpy(array[0],"water");
@@ -70,9 +73,15 @@ void testFoundmealsSize(void){
 }
 
 /////////////////////// Tests for sortMeals
-
+// Tests if the function sorts so that Warm potato salad is first in mealResuts
+void testmealResults(void){
+    char expected[50];
+    strcpy(expected, "Warm potato salad\0");
+    assert(strcmp(foundmeals[0].name, expected) == 0);
+}
 
 /////////////////////// End tests
 void endTests(void){
     free(array);
+    array = NULL;
 }
