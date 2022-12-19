@@ -5,13 +5,13 @@
 //#include "scaninput.h"
 //https://stackoverflow.com/questions/14768230/malloc-for-struct-and-pointer-in-c
 
-char **array;
+char **inputIngredienceArray;
 int inputSize = 0;
 
 void scanData() {
     //Opretter 2D array af strings
-    array = malloc(1 * sizeof(char *)); //Allocerer plads til 1 string
-    if (array == NULL) //Hvis der ikke er plads til stringen, så stop
+    inputIngredienceArray = malloc(1 * sizeof(char *)); //Allocerer plads til 1 string
+    if (inputIngredienceArray == NULL) //Hvis der ikke er plads til stringen, så stop
     {
         exit(EXIT_FAILURE);
     }
@@ -24,29 +24,29 @@ void scanData() {
     printf("\n|-----------------------------------|\n");
 
     while (1) {
-        array[inputSize] = malloc(50 * sizeof(char)); //Allocerer plads til 50 chars i pointeren
+        inputIngredienceArray[inputSize] = malloc(50 * sizeof(char)); //Allocerer plads til 50 chars i pointeren
 
         //Hvis der ikke er plads til 50 chars, så stop
-        if (array[inputSize] == NULL){ 
+        if (inputIngredienceArray[inputSize] == NULL){ 
             printf("Exit here - %d", inputSize);
             exit(EXIT_FAILURE);
         }
 
         printf("%c", 175);
         //strcpy(array[inputSize], getStringInput());
-        fgets(array[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
+        fgets(inputIngredienceArray[inputSize], 50, stdin); // fgets tager en bestemt størrelse 
         //Fjern newline
-        array[inputSize][strlen(array[inputSize]) - 1] = '\0';
+        inputIngredienceArray[inputSize][strlen(inputIngredienceArray[inputSize]) - 1] = '\0';
 
         //Hvis der bliver indtastet "next", så stopper den
-        if (strcmp(array[inputSize],"next") == 0) {
+        if (strcmp(inputIngredienceArray[inputSize],"next") == 0) {
             //printf("Break \n");
-            array[inputSize] = (char *) ' '; 
+            inputIngredienceArray[inputSize] = (char *) ' '; 
             break;
         }
 
         //Hvis der ikke bliver indtastet next, udvidre den arrayet med 1
         inputSize++;
-        array = realloc(array, (1 + inputSize) * sizeof(char *)); //Reallocerer plads til 1 string
+        inputIngredienceArray = realloc(inputIngredienceArray, (1 + inputSize) * sizeof(char *)); //Reallocerer plads til 1 string
     }
 }
